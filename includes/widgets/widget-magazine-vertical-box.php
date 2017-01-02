@@ -125,7 +125,7 @@ class Napoli_Pro_Magazine_Vertical_Box_Widget extends WP_Widget {
 
 		// Get latest posts from database.
 		$query_arguments = array(
-			'posts_per_page' => 5,
+			'posts_per_page' => 4,
 			'ignore_sticky_posts' => true,
 			'cat' => (int) $settings['category'],
 		);
@@ -143,7 +143,9 @@ class Napoli_Pro_Magazine_Vertical_Box_Widget extends WP_Widget {
 
 				if ( 0 === $i ) :
 
+					echo '<div class="left-post">';
 					Napoli_Pro::load_theme_template( 'template-parts/widgets/magazine-content', 'large-post' );
+					echo '</div>';
 
 					echo '<div class="small-posts clearfix">';
 

@@ -13,21 +13,32 @@
 --------------------------------------------------------------*/
 
 /* Magazine Vertical Boxed Widget */
-.widget-magazine-vertical-box .large-post {
+.widget-magazine-vertical-box .left-post {
 	float: left;
 	box-sizing: border-box;
-	padding-right: 1em;
+	padding-right: 0.75em;
 	width: 50%;
 }
 
 .widget-magazine-vertical-box .small-posts {
 	float: right;
 	box-sizing: border-box;
-	padding-left: 1em;
+	padding-left: 0.75em;
 	width: 50%;
 }
 
 /* Magazine Posts Columns Widget */
+.napoli_magazine_columns {
+	padding: 0;
+	border: none;
+	background: none;
+	box-shadow: none;
+}
+
+.napoli_magazine_columns .widget-magazine-posts {
+	margin-bottom: 0;
+}
+
 .widget-magazine-columns .magazine-column-left {
 	float: left;
 	box-sizing: border-box;
@@ -40,6 +51,16 @@
 	box-sizing: border-box;
 	padding-left: 1em;
 	width: 50%;
+}
+
+.widget-magazine-columns .magazine-column .magazine-column-content {
+	margin: 0;
+	padding: 1em 1.5em 0.5em;
+	max-width: 100%;
+	background: #fff;
+	box-shadow: 0 1px 2px #bbb;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
 }
 
 /*--------------------------------------------------------------
@@ -287,7 +308,7 @@
 @media only screen and (max-width: 50em) {
 
 	/* Magazine Widgets */
-	.widget-magazine-vertical-box .large-post,
+	.widget-magazine-vertical-box .left-post,
 	.widget-magazine-columns .magazine-column-left {
 		padding-right:  0.75em;
 	}
@@ -295,10 +316,6 @@
 	.widget-magazine-vertical-box .small-posts,
 	.widget-magazine-columns .magazine-column-right {
 		padding-left:  0.75em;
-	}
-
-	.widget-magazine-vertical-box .large-post .entry-content .more-link {
-		display: none;
 	}
 
 	/* Magazine Horizontal Boxed Widget */
@@ -344,10 +361,7 @@
 ## Tablet Small ( < 720px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 45em) {
-	/* Magazine Post Widgets */
-	.widget-magazine-vertical-box .large-post .entry-content {
-		display: none;
-	}
+
 }
 
 /*--------------------------------------------------------------
@@ -382,19 +396,15 @@
 	}
 
 	/* Magazine Vertical Boxed Widget */
-	.widget-magazine-vertical-box .large-post,
+	.widget-magazine-vertical-box .left-post,
 	.widget-magazine-vertical-box .small-posts {
 		float: none;
 		padding: 0;
 		width: 100%;
 	}
 
-	.widget-magazine-vertical-box .large-post .entry-content {
+	.widget-magazine-vertical-box .left-post .entry-content {
 		display: block;
-	}
-
-	.widget-magazine-vertical-box .large-post .entry-content .more-link {
-		display: inline-block;
 	}
 
 	/* Magazine Horizontal Boxed Widget */
