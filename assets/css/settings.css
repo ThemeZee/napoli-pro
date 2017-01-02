@@ -1,0 +1,38 @@
+/*
+ * Napoli Settings CSS
+ *
+ * CSS Stylesheet for settings page on Appearance -> Pro Version
+ *
+ * @package Napoli Pro
+ */
+
+/* License Settings */
+.napoli-pro-settings-wrap {
+	margin: 25px 0 0;
+}
+
+.napoli-pro-settings-wrap .license-status {
+	display: inline-block;
+	margin: 0 12px 0 0;
+	padding: 4px 8px;
+	background: #444;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.napoli-pro-settings-wrap .license-active {
+	background: green;
+}
+
+.napoli-pro-settings-wrap .license-invalid,
+.napoli-pro-settings-wrap .license-expired {
+	background: red;
+}
+
+.napoli-pro-settings-wrap .license-description {
+	margin: 16px 0 0;
+}
+
+.napoli-pro-settings-wrap .license-renewal {
+	margin: 16px 0 0;
+}
