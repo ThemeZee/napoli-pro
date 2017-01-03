@@ -28,9 +28,6 @@ class Napoli_Pro_Footer_Line {
 			return;
 		}
 
-		// Display footer navigation.
-		add_action( 'napoli_before_footer', array( __CLASS__, 'display_footer_social_menu' ), 10 );
-
 		// Remove default footer text function and replace it with new one.
 		remove_action( 'napoli_footer_text', 'napoli_footer_text' );
 		add_action( 'napoli_footer_text', array( __CLASS__, 'display_footer_text' ) );
@@ -98,44 +95,6 @@ class Napoli_Pro_Footer_Line {
 			endif;
 
 		endif;
-
-	}
-
-	/**
-	 * Display social icons in footer
-	 *
-	 * @return void
-	 */
-	static function display_footer_social_menu() {
-
-		// Check if there is a social menu.
-		if ( has_nav_menu( 'footer-social' ) ) {
-
-			// Get Theme Options from Database.
-			$theme_options = Napoli_Pro_Customizer::get_theme_options();
-
-			echo '<div class="footer-social-icons-wrap">';
-
-			echo '<div id="footer-social-icons" class="footer-social-icons social-icons-navigation container clearfix">';
-
-			// Display Social Icons Menu.
-			wp_nav_menu( array(
-				'theme_location' => 'footer-social',
-				'container' => false,
-				'menu_class' => 'social-icons-menu',
-				'echo' => true,
-				'fallback_cb' => '',
-				'link_before' => '<div class="social-link-text">',
-				'link_after' => '</div>',
-				'depth' => 1,
-				)
-			);
-
-			echo '</div>';
-
-			echo '</div>';
-
-		}
 
 	}
 
@@ -219,7 +178,6 @@ class Napoli_Pro_Footer_Line {
 
 		register_nav_menus( array(
 			'footer' => esc_html__( 'Footer Navigation', 'napoli-pro' ),
-			'footer-social' => esc_html__( 'Footer Social Icons', 'napoli-pro' ),
 		) );
 
 	}
