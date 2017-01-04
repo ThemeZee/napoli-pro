@@ -9,6 +9,136 @@
  */
 
 /*--------------------------------------------------------------
+# Header Navigation
+--------------------------------------------------------------*/
+.header-navigation-toggle {
+	display: none;
+}
+
+.header-navigation-wrap {
+	background: #fff;
+	box-shadow: 0 1px 2px #bbb;
+}
+
+.header-navigation-menu {
+	position: relative;
+	float: left;
+	margin: 0 0 0 -1em;
+	padding: 0;
+	width: 100%;
+	list-style-position: outside;
+	list-style-type: none;
+}
+
+.header-navigation-menu li {
+	float: left;
+}
+
+.header-navigation-menu a {
+	display: block;
+	padding: 1em 1.25em;
+	text-decoration: none;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+
+.header-navigation-menu > .menu-item-has-children > a:after {
+	display: inline-block;
+	margin: 0.5em 0 0 0.4em;
+	color: #444;
+	content: '\f431';
+	vertical-align: top;
+	text-decoration: inherit;
+	font-size: 14px;
+	font-family: 'Genericons';
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.header-navigation-menu a:link,
+.header-navigation-menu a:visited {
+	color: #444;
+}
+
+.header-navigation-menu a:hover,
+.header-navigation-menu a:active {
+	color: #999;
+}
+
+.header-navigation-menu ul {
+	position: absolute;
+	z-index: 99;
+	display: none;
+	margin: 0;
+	padding: 0;
+	background: #fff;
+	box-shadow: 0 1px 2px #bbb;
+	color: #444;
+	list-style-position: outside;
+	list-style-type: none;
+}
+
+.header-navigation-menu ul li {
+	position: relative;
+	float: none;
+}
+
+.header-navigation-menu ul a {
+	box-sizing: border-box;
+	padding: 0.8em 1em;
+	min-width: 250px;
+	min-width: 16rem;
+	border-bottom: 1px solid #eee;
+	font-size: 14px;
+	font-size: 0.875rem;
+	-webkit-transition: none;
+	transition: none;
+}
+
+.header-navigation-menu ul li:last-child > a {
+	border-bottom: none;
+}
+
+.header-navigation-menu ul .menu-item-has-children > a:after {
+	display: inline-block;
+	margin: 0.25em 0 0 0.2em;
+	color: #444;
+	content: '\f431';
+	vertical-align: top;
+	text-decoration: inherit;
+	font-size: 14px;
+	font-family: 'Genericons';
+	line-height: 1;
+	-webkit-transform:rotate(270deg);
+	-moz-transform:rotate(270deg);
+	-o-transform:rotate(270deg);
+	-ms-transform:rotate(270deg);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.header-navigation-menu li ul ul {
+	top: 0;
+	left: 100%;
+}
+
+.header-navigation-menu li.menu-item-has-children:hover > ul,
+.header-navigation-menu li.menu-item-has-children[aria-expanded="true"] > ul {
+	display: block;
+}
+
+.header-navigation-menu li.current-menu-item > a {
+	text-decoration: underline;
+}
+
+.header-navigation-menu li.current-menu-item > a:after {
+	text-decoration: none;
+}
+
+/*--------------------------------------------------------------
 # Magazine Widgets
 --------------------------------------------------------------*/
 
@@ -239,6 +369,156 @@
 --------------------------------------------------------------*/
 @media only screen and (max-width: 60em) {
 
+	/*** Mobile Header Navigation ***/
+
+	/* Reset */
+	.header-navigation-menu {
+		margin: 0;
+	}
+
+	.header-navigation-menu li {
+		position: static;
+		float: none;
+	}
+
+	.header-navigation-menu ul {
+		position: static;
+		display: block;
+	}
+
+	.header-navigation-menu ul a {
+		float: none;
+		width: auto;
+	}
+
+	.header-navigation-menu li ul ul {
+		margin-left: 0;
+	}
+
+	.header-navigation-menu li:hover ul ul,
+	.header-navigation-menu li:hover ul ul ul,
+	.header-navigation-menu li:hover ul ul ul ul,
+	.header-navigation-menu li:hover ul,
+	.header-navigation-menu li li:hover ul,
+	.header-navigation-menu li li li:hover ul,
+	.header-navigation-menu li li li li:hover ul {
+		display: inline;
+	}
+
+	.header-navigation-menu > .menu-item-has-children > a:after,
+	.header-navigation-menu ul .menu-item-has-children > a:after {
+		display: none;
+	}
+
+	/* Header Navigation Menu */
+	.header-navigation-wrap {
+		display: none;
+	}
+
+	.header-navigation-menu {
+		float: left;
+		width: 100%;
+		border-top: 1px solid rgba(255,255,255,0.2);
+	}
+
+	.header-navigation-menu a {
+		display: block;
+		clear: left;
+		border-bottom: 1px solid rgba(255,255,255,0.2);
+	}
+
+	.header-navigation-menu a:link,
+	.header-navigation-menu a:visited {
+		color: #fff;
+	}
+
+	.header-navigation-menu a:hover,
+	.header-navigation-menu a:active {
+		color: #ccc;
+	}
+
+	.header-navigation-menu li:last-child > a {
+		border-bottom: none;
+	}
+
+	.header-navigation-menu ul {
+		width: 100%;
+		box-shadow: none;
+	}
+
+	.header-navigation-menu ul a {
+		display: block;
+		width: 100%;
+	}
+
+	.header-navigation-menu ul a:link,
+	.header-navigation-menu ul a:visited {
+		color: #444;
+	}
+
+	.header-navigation-menu ul a:hover,
+	.header-navigation-menu ul a:active {
+		color: #999;
+	}
+
+	.header-navigation-menu ul ul a {
+		padding-left: 3em;
+	}
+
+	.header-navigation-menu ul ul ul a {
+		padding-left: 4.5em;
+	}
+
+	.header-navigation-menu ul ul ul ul a {
+		padding-left: 6em;
+	}
+
+	/* Mobile Submenu Dropdowns */
+	.header-navigation-menu .submenu-dropdown-toggle {
+		display: block;
+		float: right;
+		margin: 0;
+		padding: 0.75em 1em;
+		background: yellow;
+	}
+
+	.header-navigation-menu .submenu-dropdown-toggle:hover {
+		cursor: pointer;
+	}
+
+	.header-navigation-menu .submenu-dropdown-toggle:before {
+		color: #fff;
+		content: '\f431';
+		vertical-align: middle;
+		text-decoration: inherit;
+		font-size: 24px;
+		font-family: 'Genericons';
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.header-navigation-menu .submenu-dropdown-toggle:hover:before {
+		color: #ccc;
+	}
+
+	.header-navigation-menu .submenu-dropdown-toggle.active:before {
+		content: '\f432';
+	}
+
+	.header-navigation-menu ul .submenu-dropdown-toggle {
+		padding: 0.5em 1em;
+	}
+
+
+	.header-navigation-menu ul .submenu-dropdown-toggle:before {
+		color: #777;
+	}
+
+	.header-navigation-menu ul .submenu-dropdown-toggle:hover:before {
+		color: #303030;
+	}
+
 	/* Footer Social Icons */
 	.footer-social-icons .social-icons-menu li {
 		text-align: center;
@@ -401,5 +681,17 @@
 	.widget-magazine-vertical-box .left-post .large-post .entry-title {
 		font-size: 15px;
 		font-size: 0.9375rem;
+	}
+}
+
+
+/*--------------------------------------------------------------
+# Media Query Fixes
+--------------------------------------------------------------*/
+
+/* Ensure header navigation is visible on desktop view */
+@media only screen and (min-width: 60.001em) {
+	.header-navigation-menu {
+		display: block !important;
 	}
 }
