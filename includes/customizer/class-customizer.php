@@ -70,7 +70,7 @@ class Napoli_Pro_Customizer {
 			'header_color'                => '#ffffff',
 			'navigation_color'            => '#fafafa',
 			'footer_color'                => '#ffffff',
-			'text_font'                   => 'Roboto',
+			'text_font'                   => 'Open Sans',
 			'title_font'                  => 'Montserrat',
 			'navi_font'                   => 'Montserrat',
 			'available_fonts'             => 'favorites',

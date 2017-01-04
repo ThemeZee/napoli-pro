@@ -79,24 +79,24 @@ class Napoli_Pro_Custom_Fonts {
 			$custom_css .= '
 				/* Title Font Setting */
 				.site-title,
-				.page-header .archive-title,
 				.page-title,
-				.entry-title,
-				.comments-header .comments-title,
-				.comment-reply-title span,
-				.widget-title,
-				.widget-magazine-posts .widget-header .widget-title {
+				.entry-title {
 					font-family: "' . esc_attr( $theme_options['title_font'] ) . '";
 				}
 				';
 
 		}
 
-		// Set Navigation Font.
+		// Set Navigation and Widget Title Font.
 		if ( $theme_options['navi_font'] != $default_options['navi_font'] ) {
 
 			$custom_css .= '
-				/* Navigation Font Setting */
+				/* Widget Title Font Setting */
+				.widget-title,
+				.page-header .archive-title,
+				.comments-header .comments-title,
+				.comment-reply-title,
+				.related-posts-title,
 				.main-navigation-menu a,
 				.footer-navigation-menu a {
 					font-family: "' . esc_attr( $theme_options['navi_font'] ) . '";
@@ -200,7 +200,7 @@ class Napoli_Pro_Custom_Fonts {
 				'label'      => __( 'Base Font', 'napoli-pro' ),
 				'section'    => 'napoli_pro_section_fonts',
 				'settings'   => 'napoli_theme_options[text_font]',
-				'priority' => 1,
+				'priority' => 10,
 			)
 		) );
 
@@ -216,7 +216,7 @@ class Napoli_Pro_Custom_Fonts {
 				'label'      => _x( 'Headings', 'font setting', 'napoli-pro' ),
 				'section'    => 'napoli_pro_section_fonts',
 				'settings'   => 'napoli_theme_options[title_font]',
-				'priority' => 2,
+				'priority' => 20,
 			)
 		) );
 
@@ -229,10 +229,10 @@ class Napoli_Pro_Custom_Fonts {
 		);
 		$wp_customize->add_control( new Napoli_Pro_Customize_Font_Control(
 			$wp_customize, 'navi_font', array(
-				'label'      => _x( 'Navigation', 'font setting', 'napoli-pro' ),
+				'label'      => _x( 'Navigation and Widgets', 'font setting', 'napoli-pro' ),
 				'section'    => 'napoli_pro_section_fonts',
 				'settings'   => 'napoli_theme_options[navi_font]',
-				'priority' => 3,
+				'priority' => 30,
 			)
 		) );
 
@@ -255,7 +255,7 @@ class Napoli_Pro_Custom_Fonts {
 					'popular' => __( 'Most Popular Google Fonts (100)', 'napoli-pro' ),
 					'all' => __( 'All Google Fonts (650)', 'napoli-pro' ),
 					),
-				'priority' => 5,
+				'priority' => 50,
 			)
 		) );
 

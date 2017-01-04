@@ -12,7 +12,7 @@ License: GPL v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Napoli Pro
-Copyright(C) 2016, ThemeZee.com - support@themezee.com
+Copyright(C) 2017, ThemeZee.com - support@themezee.com
 
 */
 
@@ -110,7 +110,7 @@ class Napoli_Pro {
 
 		// Include Pro Features.
 		#require_once NAPOLI_PRO_PLUGIN_DIR . '/includes/modules/class-custom-colors.php';
-		#require_once NAPOLI_PRO_PLUGIN_DIR . '/includes/modules/class-custom-fonts.php';
+		require_once NAPOLI_PRO_PLUGIN_DIR . '/includes/modules/class-custom-fonts.php';
 		require_once NAPOLI_PRO_PLUGIN_DIR . '/includes/modules/class-header-menu.php';
 		require_once NAPOLI_PRO_PLUGIN_DIR . '/includes/modules/class-footer-line.php';
 		require_once NAPOLI_PRO_PLUGIN_DIR . '/includes/modules/class-footer-widgets.php';
