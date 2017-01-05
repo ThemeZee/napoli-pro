@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Napoli Pro\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2016-12-30 16:39+0100\n"
+"POT-Creation-Date: 2017-01-05 16:42+0100\n"
 "PO-Revision-Date: 2016-10-13 13:07+0100\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
@@ -174,31 +174,36 @@ msgstr ""
 msgid "Stay in Touch"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:250
+#: includes/modules/class-custom-colors.php:264
 msgid "Theme Colors"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:269
+#: includes/modules/class-custom-colors.php:283
 msgctxt "color setting"
 msgid "Header"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:286
+#: includes/modules/class-custom-colors.php:300
 msgctxt "color setting"
 msgid "Navigation"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:303
+#: includes/modules/class-custom-colors.php:317
 msgctxt "color setting"
 msgid "Links and Buttons"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:320
+#: includes/modules/class-custom-colors.php:334
 msgctxt "color setting"
 msgid "Headings"
 msgstr ""
 
-#: includes/modules/class-custom-colors.php:337
+#: includes/modules/class-custom-colors.php:351
+msgctxt "color setting"
+msgid "Widget Titles"
+msgstr ""
+
+#: includes/modules/class-custom-colors.php:368
 msgctxt "color setting"
 msgid "Footer"
 msgstr ""
@@ -218,7 +223,7 @@ msgstr ""
 
 #: includes/modules/class-custom-fonts.php:232
 msgctxt "font setting"
-msgid "Navigation"
+msgid "Navigation and Widgets"
 msgstr ""
 
 #: includes/modules/class-custom-fonts.php:249
@@ -241,24 +246,20 @@ msgstr ""
 msgid "All Google Fonts (650)"
 msgstr ""
 
-#: includes/modules/class-footer-line.php:151
+#: includes/modules/class-footer-line.php:110
 msgid "Footer Settings"
 msgstr ""
 
-#: includes/modules/class-footer-line.php:166
+#: includes/modules/class-footer-line.php:125
 msgid "Footer Text"
 msgstr ""
 
-#: includes/modules/class-footer-line.php:183
+#: includes/modules/class-footer-line.php:142
 msgid "Display Credit Link to ThemeZee on footer line"
 msgstr ""
 
-#: includes/modules/class-footer-line.php:221
+#: includes/modules/class-footer-line.php:180
 msgid "Footer Navigation"
-msgstr ""
-
-#: includes/modules/class-footer-line.php:222
-msgid "Footer Social Icons"
 msgstr ""
 
 #: includes/modules/class-footer-widgets.php:110
@@ -293,6 +294,10 @@ msgstr ""
 msgid "Appears on the fourth footer column."
 msgstr ""
 
+#: includes/modules/class-header-menu.php:80
+msgid "Header Bottom"
+msgstr ""
+
 #: includes/widgets/widget-magazine-columns.php:24
 msgid "Magazine: Columns"
 msgstr ""
@@ -305,7 +310,7 @@ msgstr ""
 
 #: includes/widgets/widget-magazine-columns.php:228
 #: includes/widgets/widget-magazine-horizontal-box.php:177
-#: includes/widgets/widget-magazine-vertical-box.php:184
+#: includes/widgets/widget-magazine-vertical-box.php:186
 #, php-format
 msgid "View all posts from category %s"
 msgstr ""
@@ -321,7 +326,7 @@ msgstr ""
 #: includes/widgets/widget-magazine-columns.php:291
 #: includes/widgets/widget-magazine-columns.php:312
 #: includes/widgets/widget-magazine-horizontal-box.php:237
-#: includes/widgets/widget-magazine-vertical-box.php:244
+#: includes/widgets/widget-magazine-vertical-box.php:246
 msgid "All Categories"
 msgstr ""
 
@@ -352,12 +357,12 @@ msgid ""
 msgstr ""
 
 #: includes/widgets/widget-magazine-horizontal-box.php:228
-#: includes/widgets/widget-magazine-vertical-box.php:235
+#: includes/widgets/widget-magazine-vertical-box.php:237
 msgid "Title:"
 msgstr ""
 
 #: includes/widgets/widget-magazine-horizontal-box.php:234
-#: includes/widgets/widget-magazine-vertical-box.php:241
+#: includes/widgets/widget-magazine-vertical-box.php:243
 msgid "Category:"
 msgstr ""
 
@@ -371,6 +376,6 @@ msgid ""
 "Please use this widget ONLY in the Magazine Homepage widget area."
 msgstr ""
 
-#: napoli-pro.php:205
+#: napoli-pro.php:206
 msgid "Settings"
 msgstr ""

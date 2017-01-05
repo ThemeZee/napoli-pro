@@ -65,7 +65,7 @@ class Napoli_Pro {
 		define( 'NAPOLI_PRO_VERSION', '1.0' );
 
 		// Define Plugin Name.
-		define( 'NAPOLI_PRO_PRODUCT_ID', 89730 );
+		define( 'NAPOLI_PRO_PRODUCT_ID', 96583 );
 
 		// Define Update API URL.
 		define( 'NAPOLI_PRO_STORE_API_URL', 'https://themezee.com' );
