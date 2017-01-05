@@ -14,18 +14,20 @@
 			$( '.site-header' )
 				.css( 'background', newval );
 
-			var textcolor;
+			var textcolor, hovercolor;
 
-			if( isColorDark( newval ) ) {
-				textcolor = '#ffffff';
+			if( isColorLight( newval ) ) {
+				textcolor = '#111111';
+				hovercolor = 'rgba(0,0,0,0.5)';
 			} else {
-				textcolor = '#000000';
+				textcolor = '#ffffff';
+				hovercolor = '#cccccc';
 			}
 
-			$( '.site-title, .site-title a, .sidebar-navigation-toggle, .header-social-icons .social-icons-menu li a' )
+			$( '.site-title, .site-title a, .main-navigation-menu a, .header-social-icons .social-icons-menu li a' )
 				.css( 'color', textcolor );
-			$('.site-title a, .sidebar-navigation-toggle, .header-social-icons .social-icons-menu li a')
-				.hover( function() { $( this ).css( 'color', textcolor ); },
+			$('.site-title, .site-title a, .main-navigation-menu a, .header-social-icons .social-icons-menu li a')
+				.hover( function() { $( this ).css( 'color', hovercolor ); },
 						function() { $( this ).css( 'color', textcolor ); }
 				);
 		} );
@@ -34,21 +36,61 @@
 	/* Navigation Color Option */
 	wp.customize( 'napoli_theme_options[navigation_color]', function( value ) {
 		value.bind( function( newval ) {
-			$( '.primary-navigation-wrap' )
+			$( '.header-navigation-wrap' )
 				.css( 'background', newval );
 
-			var textcolor;
+			var textcolor, hovercolor;
 
 			if( isColorDark( newval ) ) {
 				textcolor = '#ffffff';
+				hovercolor = 'rgba(255,255,255,0.5)';
 			} else {
-				textcolor = '#000000';
+				textcolor = '#444444';
+				hovercolor = '#999999';
 			}
 
-			$( '.main-navigation-menu > a' )
+			$( '.header-navigation-menu > li > a' )
 				.css( 'color', textcolor );
-			$('.main-navigation-menu > a')
-				.hover( function() { $( this ).css( 'color', textcolor ); },
+			$('.header-navigation-menu > li > a')
+				.hover( function() { $( this ).css( 'color', hovercolor ); },
+						function() { $( this ).css( 'color', textcolor ); }
+				);
+		} );
+	} );
+
+	/* Title Color Option */
+	wp.customize( 'napoli_theme_options[title_color]', function( value ) {
+		value.bind( function( newval ) {
+			$( '.page-title, .entry-title, .entry-title a' )
+				.css( 'color', newval );
+			$('.entry-title, .entry-title a')
+				.hover( function() { $( this ).css( 'color', '#303030' ); },
+						function() { $( this ).css( 'color', newval ); }
+				);
+		} );
+	} );
+
+	/* Widget Title Color Option */
+	wp.customize( 'napoli_theme_options[widget_title_color]', function( value ) {
+		value.bind( function( newval ) {
+			$( '.widget-title, .page-header .archive-title, .comments-header, .comment-reply-title, .related-posts-title' )
+				.not( $('.footer-widgets .widget .widget-title') )
+				.css( 'background', newval );
+
+			var textcolor, hovercolor;
+
+			if( isColorLight( newval ) ) {
+				textcolor = '#111111';
+				hovercolor = 'rgba(0,0,0,0.5)';
+			} else {
+				textcolor = '#ffffff';
+				hovercolor = 'rgba(255,255,255,0.5)';
+			}
+
+			$( '.widget-title, .widget-title a, .page-header .archive-title, .comments-header .comments-title, .comment-reply-title, .related-posts-title' )
+				.css( 'color', textcolor );
+			$( '.widget-title a, .comment-reply-title' )
+				.hover( function() { $( this ).css( 'color', hovercolor ); },
 						function() { $( this ).css( 'color', textcolor ); }
 				);
 		} );
@@ -57,21 +99,27 @@
 	/* Footer Color Option */
 	wp.customize( 'napoli_theme_options[footer_color]', function( value ) {
 		value.bind( function( newval ) {
-			$( '.footer-wrap' )
+			$( '.footer-wrap, .footer-widgets-background' )
 				.css( 'background', newval );
 
-			var textcolor;
+			var textcolor, hovercolor;
 
-			if( isColorDark( newval ) ) {
-				textcolor = '#ffffff';
+			if( isColorLight( newval ) ) {
+				textcolor = '#111111';
+				hovercolor = 'rgba(0,0,0,0.5)';
+				bordercolor = 'rgba(0,0,0,0.1)';
 			} else {
-				textcolor = '#000000';
+				textcolor = '#ffffff';
+				hovercolor = '#cccccc';
+				bordercolor = 'rgba(255,255,255,0.1)';
 			}
 
-			$( '.site-footer, .site-footer .site-info a, .footer-navigation-menu a' )
+			$( '.site-footer, .site-footer .site-info a, .footer-navigation-menu a, .footer-widgets .widget, .footer-widgets .widget-title, .footer-widgets .widget a' )
 				.css( 'color', textcolor );
-			$('.site-footer, .site-footer .site-info a, .footer-navigation-menu a')
-				.hover( function() { $( this ).css( 'color', textcolor ); },
+			$( '.footer-widgets-background, .footer-widgets .widget, .footer-widgets .widget-title' )
+				.css( 'border-color', bordercolor );
+			$( '.site-footer .site-info a, .footer-navigation-menu a, .footer-widgets .widget a' )
+				.hover( function() { $( this ).css( 'color', hovercolor ); },
 						function() { $( this ).css( 'color', textcolor ); }
 				);
 		} );

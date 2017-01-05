@@ -59,18 +59,23 @@ class Napoli_Pro_Custom_Colors {
 				';
 
 			// Check if a dark background color was chosen.
-			if ( self::is_color_dark( $theme_options['header_color'] ) ) {
+			if ( self::is_color_light( $theme_options['header_color'] ) ) {
 				$custom_css .= '
 					.site-title,
 					.site-title a:link,
 					.site-title a:visited,
-					.sidebar-navigation-toggle,
+					.main-navigation-menu a:link,
+					.main-navigation-menu a:visited,
 					.header-social-icons .social-icons-menu li a {
-						color: #fff;
+						color: #111111;
 					}
 					.site-title a:hover,
-					.site-title a:active {
-						color: #ff5555;
+					.site-title a:active,
+					.main-navigation-menu a:hover,
+					.main-navigation-menu a:active,
+					.header-social-icons .social-icons-menu li a:active,
+					.header-social-icons .social-icons-menu li a:hover {
+						color: rgba(0,0,0,0.5);
 					}
 					';
 			}
@@ -80,7 +85,7 @@ class Napoli_Pro_Custom_Colors {
 		if ( $theme_options['navigation_color'] != $default_options['navigation_color'] ) {
 
 			$custom_css .= '
-				.primary-navigation-wrap {
+				.header-navigation-wrap {
 					background: ' . $theme_options['navigation_color'] . ';
 				}
 				';
@@ -88,42 +93,14 @@ class Napoli_Pro_Custom_Colors {
 			// Check if a dark background color was chosen.
 			if ( self::is_color_dark( $theme_options['navigation_color'] ) ) {
 				$custom_css .= '
-					.main-navigation-menu a,
-					.main-navigation-menu a:link,
-					.main-navigation-menu a:visited,
-					.main-navigation-menu > .menu-item-has-children > a:after {
+					.header-navigation-menu > li > a,
+					.header-navigation-menu > li > a:link,
+					.header-navigation-menu > li > a:visited {
 						color: #ffffff;
 					}
-					.main-navigation-menu a:hover,
-					.main-navigation-menu a:active {
-						color: #ff5555;
-					}
-					';
-			}
-		}
-
-		// Set Navigation Color.
-		if ( $theme_options['footer_color'] != $default_options['footer_color'] ) {
-
-			$custom_css .= '
-				.footer-wrap {
-					background: ' . $theme_options['footer_color'] . ';
-				}
-				';
-
-			// Check if a dark background color was chosen.
-			if ( self::is_color_dark( $theme_options['footer_color'] ) ) {
-				$custom_css .= '
-					.site-footer,
-					.site-footer .site-info a:hover,
-					.site-footer .site-info a:active,
-					.footer-navigation-menu a:link,
-					.footer-navigation-menu a:visited {
-						color: #ffffff;
-					}
-					.footer-navigation-menu a:hover,
-					.footer-navigation-menu a:active {
-						color: #ff5555;
+					.header-navigation-menu > li > a:hover,
+					.header-navigation-menu > li > a:active {
+						color: rgba(255,255,255,0.5);
 					}
 					';
 			}
@@ -133,9 +110,6 @@ class Napoli_Pro_Custom_Colors {
 		if ( $theme_options['title_color'] != $default_options['title_color'] ) {
 
 			$custom_css .= '
-				.widget-title,
-				.widget-title a:link,
-				.widget-title a:visited,
 				.page-title,
 				.entry-title,
 				.entry-title a:link,
@@ -143,13 +117,48 @@ class Napoli_Pro_Custom_Colors {
 					color: ' . $theme_options['title_color'] . ';
 				}
 
-				.widget-title a:hover,
-				.widget-title a:active,
 				.entry-title a:hover,
 				.entry-title a:active {
-					color: #ff5555;
+					color: #303030;
 				}
 				';
+		}
+
+		// Set Widget Title Color.
+		if ( $theme_options['widget_title_color'] != $default_options['widget_title_color'] ) {
+
+			$custom_css .= '
+				.widget-title,
+				.page-header .archive-title,
+				.comments-header,
+				.comment-reply-title,
+				.related-posts-title {
+					background: ' . $theme_options['widget_title_color'] . ';
+				}
+				';
+
+			// Check if a dark background color was chosen.
+			if ( self::is_color_light( $theme_options['widget_title_color'] ) ) {
+				$custom_css .= '
+					.widget-title,
+					.widget-title a:link,
+					.widget-title a:visited,
+					.page-header .archive-title,
+					.comments-header .comments-title,
+					.comment-reply-title,
+					.comment-reply-title small a:link,
+					.comment-reply-title small a:visited,
+					.related-posts-title {
+						color: #111111;
+					}
+					.widget-title a:hover,
+					.widget-title a:active,
+					.comment-reply-title small a:link,
+					.comment-reply-title small a:visited {
+						color: rgba(0,0,0,0.5);
+					}
+					';
+			}
 		}
 
 		// Set Primary Content Color.
@@ -158,46 +167,17 @@ class Napoli_Pro_Custom_Colors {
 			$custom_css .= '
 				a,
 				a:link,
-				a:visited,
-				.site-title a:hover,
-				.site-title a:active,
-				.sidebar-navigation-toggle:hover,
-				.header-social-icons .social-icons-menu li a:hover,
-				.main-navigation-menu a:hover,
-				.main-navigation-menu a:active,
-				.main-navigation-toggle:hover,
-				.main-navigation-toggle:active,
-				.main-navigation-menu .submenu-dropdown-toggle:hover:before,
-				.main-navigation-menu .submenu-dropdown-toggle:active:before,
-				.widget-title a:link,
-				.widget-title a:visited,
-				.widget-magazine-posts .widget-header .widget-title,
-				.page-header .archive-title,
-				.comments-header .comments-title,
-				.comment-reply-title span,
-				.related-posts-title,
-				.entry-title a:hover,
-				.entry-title a:active,
-				.entry-categories .meta-category a:hover,
-				.entry-categories .meta-category a:active,
-				.footer-navigation-menu a:hover,
-				.footer-navigation-menu a:active {
+				a:visited {
 					color: ' . $theme_options['link_color'] . ';
 				}
 
 				a:hover,
 				a:focus,
-				a:active,
-				.widget-title a:hover,
-				.widget-title a:active {
-					color: #373737;
+				a:active {
+					color: #303030;
 				}
 
-				.page-header .archive-title,
-				.widget-magazine-posts .widget-header .widget-title,
-				.comments-header .comments-title,
-				.comment-reply-title span,
-				.related-posts-title {
+				blockquote {
 					border-color: ' . $theme_options['link_color'] . ';
 				}
 
@@ -205,20 +185,12 @@ class Napoli_Pro_Custom_Colors {
 				input[type="button"],
 				input[type="reset"],
 				input[type="submit"],
-				.main-navigation-menu ul,
-				.more-link,
-				.entry-categories .meta-category a,
 				.widget_tag_cloud .tagcloud a,
 				.entry-tags .meta-tags a,
-				.post-navigation .nav-links a:hover,
-				.post-navigation .nav-links a:active,
 				.pagination a:hover,
 				.pagination a:active,
 				.pagination .current,
 				.infinite-scroll #infinite-handle span:hover,
-				.infinite-scroll #infinite-handle span:active,
-				.reply .comment-reply-link:hover,
-				.reply .comment-reply-link:active,
 				.tzwb-tabbed-content .tzwb-tabnavi li a:hover,
 				.tzwb-tabbed-content .tzwb-tabnavi li a:active,
 				.tzwb-tabbed-content .tzwb-tabnavi li a.current-tab,
@@ -229,9 +201,51 @@ class Napoli_Pro_Custom_Colors {
 
 				.tzwb-social-icons .social-icons-menu li a:hover,
 				.tzwb-social-icons .social-icons-menu li a:active {
-					background: #242424;
+					background: #303030;
 				}
 				';
+		}
+
+		// Set Footer Color.
+		if ( $theme_options['footer_color'] != $default_options['footer_color'] ) {
+
+			$custom_css .= '
+				.footer-wrap,
+				.footer-widgets-background {
+					background: ' . $theme_options['footer_color'] . ';
+				}
+				';
+
+			// Check if a dark background color was chosen.
+			if ( self::is_color_light( $theme_options['footer_color'] ) ) {
+				$custom_css .= '
+					.footer-widgets-background,
+					.footer-widgets .widget,
+					.footer-widgets .widget-title {
+						border-color: rgba(0,0,0,0.1);
+					}
+					.site-footer,
+					.site-footer .site-info a:link,
+					.site-footer .site-info a:visited,
+					.footer-navigation-menu a:link,
+					.footer-navigation-menu a:visited,
+					.footer-widgets .widget,
+					.footer-widgets .widget-title,
+					.footer-widgets .widget a:link,
+					.footer-widgets .widget a:visited {
+						color: #111111;
+					}
+					.site-footer .site-info a:hover,
+					.site-footer .site-info a:active,
+					.footer-navigation-menu a:hover,
+					.footer-navigation-menu a:active,
+					.footer-widgets .widget,
+					.footer-widgets .widget a:hover,
+					.footer-widgets .widget a:active {
+						color: rgba(0,0,0,0.5);
+					}
+					';
+			}
 		}
 
 		return $custom_css;
@@ -311,7 +325,7 @@ class Napoli_Pro_Custom_Colors {
 		$wp_customize->add_setting( 'napoli_theme_options[title_color]', array(
 			'default'           => $default_options['title_color'],
 			'type'           	=> 'option',
-			'transport'         => 'refresh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 			)
 		);
@@ -320,6 +334,23 @@ class Napoli_Pro_Custom_Colors {
 				'label'      => _x( 'Headings', 'color setting', 'napoli-pro' ),
 				'section'    => 'napoli_pro_section_colors',
 				'settings'   => 'napoli_theme_options[title_color]',
+				'priority' => 40,
+			)
+		) );
+
+		// Add Content Secondary Color setting.
+		$wp_customize->add_setting( 'napoli_theme_options[widget_title_color]', array(
+			'default'           => $default_options['widget_title_color'],
+			'type'           	=> 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+			)
+		);
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'napoli_theme_options[widget_title_color]', array(
+				'label'      => _x( 'Widget Titles', 'color setting', 'napoli-pro' ),
+				'section'    => 'napoli_pro_section_colors',
+				'settings'   => 'napoli_theme_options[widget_title_color]',
 				'priority' => 40,
 			)
 		) );
