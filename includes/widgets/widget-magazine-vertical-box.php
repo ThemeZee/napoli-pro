@@ -189,7 +189,6 @@ class Napoli_Pro_Magazine_Vertical_Box_Widget extends WP_Widget {
 				// Display Widget Title with link to category archive.
 				echo '<div class="widget-header">';
 				echo '<h3 class="widget-title"><a class="category-archive-link" href="' . esc_url( $link_url ) . '" title="' . esc_attr( $link_title ) . '">' . $widget_title . '</a></h3>';
-				echo '<div class="category-description">' . category_description( $settings['category'] ) . '</div>';
 				echo '</div>';
 
 			else :
