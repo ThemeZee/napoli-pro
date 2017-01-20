@@ -256,7 +256,7 @@ class Napoli_Pro {
 
 		if ( $options->get( 'license_key' ) <> '' ) :
 
-			$license_key = $options->get( 'license_key' );
+			$license_key = trim( $options->get( 'license_key' ) );
 
 			// Setup the updater.
 			$napoli_pro_updater = new Napoli_Pro_Plugin_Updater( NAPOLI_PRO_STORE_API_URL, __FILE__, array(
