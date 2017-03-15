@@ -194,24 +194,11 @@ class Napoli_Pro_Magazine_Columns_Widget extends WP_Widget {
 
 		if ( ! empty( $widget_title ) ) :
 
-			// Link Category Title.
-			if ( $category_id > 0 ) :
+			// Link Widget Title to category archive when possible.
+			$widget_title = napoli_magazine_widget_title( $widget_title, $category_id );
 
-				// Set Link URL and Title for Category.
-				$link_title = sprintf( __( 'View all posts from category %s', 'napoli-pro' ), get_cat_name( $category_id ) );
-				$link_url = get_category_link( $category_id );
-
-				// Display Widget Title with link to category archive.
-				echo '<div class="widget-header">';
-				echo '<h3 class="widget-title"><a class="category-archive-link" href="' . esc_url( $link_url ) . '" title="' . esc_attr( $link_title ) . '">' . $widget_title . '</a></h3>';
-				echo '</div>';
-
-			else :
-
-				// Display default Widget Title without link.
-				echo $args['before_title'] . $widget_title . $args['after_title'];
-
-			endif;
+			// Display Widget Title.
+			echo $args['before_title'] . $widget_title . $args['after_title'];
 
 		endif;
 	}
