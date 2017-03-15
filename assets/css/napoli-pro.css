@@ -158,14 +158,14 @@
 }
 
 /* Magazine Posts Columns Widget */
-.napoli_magazine_columns {
+.napoli-magazine-columns-widget {
 	padding: 0;
 	border: none;
 	background: none;
 	box-shadow: none;
 }
 
-.napoli_magazine_columns .widget-magazine-posts {
+.napoli-magazine-columns-widget .widget-magazine-posts {
 	margin-bottom: 0;
 }
 

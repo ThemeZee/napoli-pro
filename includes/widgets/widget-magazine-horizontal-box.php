@@ -21,19 +21,13 @@ class Napoli_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 		// Setup Widget.
 		parent::__construct(
 			'napoli-magazine-horizontal-box', // ID.
-			esc_html__( 'Magazine: Horizontal Box', 'napoli-pro' ), // Name.
+			esc_html__( 'Magazine (Horizontal Box)', 'napoli-pro' ), // Name.
 			array(
-				'classname' => 'napoli_magazine_horizontal_box',
+				'classname' => 'napoli-magazine-horizontal-box-widget',
 				'description' => esc_html__( 'Displays your posts from a selected category in a horizontal box layout. Please use this widget ONLY in the Magazine Homepage widget area.', 'napoli-pro' ),
 				'customize_selective_refresh' => true,
 			) // Args.
 		);
-
-		// Delete Widget Cache on certain actions.
-		add_action( 'save_post', array( $this, 'delete_widget_cache' ) );
-		add_action( 'deleted_post', array( $this, 'delete_widget_cache' ) );
-		add_action( 'switch_theme', array( $this, 'delete_widget_cache' ) );
-
 	}
 
 	/**
@@ -47,7 +41,6 @@ class Napoli_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 		);
 
 		return $defaults;
-
 	}
 
 	/**
@@ -85,31 +78,28 @@ class Napoli_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 		<?php
 		echo $args['after_widget'];
 
-		// Set Cache.
+		// End Output Buffering.
 		ob_end_flush();
-
 	}
 
 	/**
 	 * Renders the Widget Content
 	 *
-	 * Switches between horizontal and vertical layout style based on widget settings
-	 *
-	 * @uses this->magazine_posts_horizontal() or this->magazine_posts_vertical()
 	 * @used-by this->widget()
 	 *
 	 * @param array $settings / Settings for this widget instance.
 	 */
 	function render( $settings ) {
 
-		// Get latest posts from database.
+		// Get cached post ids.
+		$post_ids = napoli_get_magazine_post_ids( $this->id, $settings['category'], 5 );
+
+		// Fetch posts from database.
 		$query_arguments = array(
-			'posts_per_page' => 5,
-			'ignore_sticky_posts' => true,
-			'cat' => (int) $settings['category'],
+			'post__in'            => $post_ids,
+			'no_found_rows'       => true,
 		);
 		$posts_query = new WP_Query( $query_arguments );
-		$i = 0;
 
 		// Check if there are posts.
 		if ( $posts_query->have_posts() ) :
@@ -117,23 +107,18 @@ class Napoli_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 			// Display Posts.
 			while ( $posts_query->have_posts() ) : $posts_query->the_post();
 
-				if ( $i < 2 ) :
+				// Display first two posts differently.
+				if ( $posts_query->current_post < 2 ) :
 
-					if ( 0 === $i ) :
+					if ( 0 === $posts_query->current_post ) :
 						echo '<div class="magazine-grid magazine-grid-two-columns clearfix">';
 					endif;
 
-					// Display excerpt for first post.
-					set_query_var( 'napoli_post_excerpt', true );
-
 					echo '<div class="post-column">';
-					Napoli_Pro::load_theme_template( 'template-parts/widgets/magazine-content', 'large-post' );
+					get_template_part( 'template-parts/widgets/magazine-large-post', 'horizontal-box' );
 					echo '</div>';
 
-					// Display no excerpts for medium posts.
-					set_query_var( 'napoli_post_excerpt', false );
-
-					if ( 1 === $i ) :
+					if ( 1 === $posts_query->current_post ) :
 						echo '</div>';
 						echo '<div class="magazine-grid magazine-grid-three-columns clearfix">';
 					endif;
@@ -141,10 +126,10 @@ class Napoli_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 				else :
 
 					echo '<div class="post-column">';
-					Napoli_Pro::load_theme_template( 'template-parts/widgets/magazine-content', 'medium-post' );
+					get_template_part( 'template-parts/widgets/magazine-medium-post', 'horizontal-box' );
 					echo '</div>';
 
-				endif; $i++;
+				endif;
 
 			endwhile;
 
@@ -154,7 +139,6 @@ class Napoli_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 
 		// Reset Postdata.
 		wp_reset_postdata();
-
 	}
 
 	/**
@@ -180,6 +164,7 @@ class Napoli_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 				// Display Widget Title with link to category archive.
 				echo '<div class="widget-header">';
 				echo '<h3 class="widget-title"><a class="category-archive-link" href="' . esc_url( $link_url ) . '" title="' . esc_attr( $link_title ) . '">' . $widget_title . '</a></h3>';
+				echo '<div class="category-description">' . category_description( $settings['category'] ) . '</div>';
 				echo '</div>';
 
 			else :
@@ -190,9 +175,7 @@ class Napoli_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 			endif;
 
 		endif;
-
-	} // widget_title()
-
+	}
 
 	/**
 	 * Update Widget Settings
@@ -207,7 +190,7 @@ class Napoli_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['category'] = (int) $new_instance['category'];
 
-		$this->delete_widget_cache();
+		napoli_flush_magazine_post_ids();
 
 		return $instance;
 	}
@@ -225,7 +208,7 @@ class Napoli_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'napoli-pro' ); ?>
-				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $settings['title']; ?>" />
+				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $settings['title'] ); ?>" />
 			</label>
 		</p>
 
@@ -244,16 +227,6 @@ class Napoli_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 			?>
 		</p>
 
-	<?php
-	} // form()
-
-
-	/**
-	 * Delete Widget Cache
-	 */
-	public function delete_widget_cache() {
-
-		wp_cache_delete( 'widget_napoli_magazine_horizontal_box', 'widget' );
-
+		<?php
 	}
 }

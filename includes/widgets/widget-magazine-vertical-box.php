@@ -21,19 +21,13 @@ class Napoli_Pro_Magazine_Vertical_Box_Widget extends WP_Widget {
 		// Setup Widget.
 		parent::__construct(
 			'napoli-magazine-vertical-box', // ID.
-			esc_html__( 'Magazine: Vertical Box', 'napoli-pro' ), // Name.
+			esc_html__( 'Magazine (Vertical Box)', 'napoli-pro' ), // Name.
 			array(
-				'classname' => 'napoli_magazine_vertical_box',
+				'classname' => 'napoli-magazine-vertical-box-widget',
 				'description' => esc_html__( 'Displays your posts from a selected category in a vertical box layout. Please use this widget ONLY in the Magazine Homepage widget area.', 'napoli-pro' ),
 				'customize_selective_refresh' => true,
 			) // Args.
 		);
-
-		// Delete Widget Cache on certain actions.
-		add_action( 'save_post', array( $this, 'delete_widget_cache' ) );
-		add_action( 'deleted_post', array( $this, 'delete_widget_cache' ) );
-		add_action( 'switch_theme', array( $this, 'delete_widget_cache' ) );
-
 	}
 
 	/**
@@ -47,7 +41,6 @@ class Napoli_Pro_Magazine_Vertical_Box_Widget extends WP_Widget {
 		);
 
 		return $defaults;
-
 	}
 
 	/**
@@ -59,22 +52,6 @@ class Napoli_Pro_Magazine_Vertical_Box_Widget extends WP_Widget {
 	 * @param array $instance / Settings for this widget instance.
 	 */
 	function widget( $args, $instance ) {
-
-		$cache = array();
-
-		// Get Widget Object Cache.
-		if ( ! $this->is_preview() ) {
-			$cache = wp_cache_get( 'widget_napoli_magazine_vertical_box', 'widget' );
-		}
-		if ( ! is_array( $cache ) ) {
-			$cache = array();
-		}
-
-		// Display Widget from Cache if exists.
-		if ( isset( $cache[ $this->id ] ) ) {
-			echo $cache[ $this->id ];
-			return;
-		}
 
 		// Start Output Buffering.
 		ob_start();
@@ -101,59 +78,49 @@ class Napoli_Pro_Magazine_Vertical_Box_Widget extends WP_Widget {
 		<?php
 		echo $args['after_widget'];
 
-		// Set Cache.
-		if ( ! $this->is_preview() ) {
-			$cache[ $this->id ] = ob_get_flush();
-			wp_cache_set( 'widget_napoli_magazine_vertical_box', $cache, 'widget' );
-		} else {
-			ob_end_flush();
-		}
-
+		// End Output Buffering.
+		ob_end_flush();
 	}
 
 	/**
 	 * Renders the Widget Content
 	 *
-	 * Switches between vertical and vertical layout style based on widget settings
-	 *
-	 * @uses this->magazine_posts_vertical() or this->magazine_posts_vertical()
 	 * @used-by this->widget()
 	 *
 	 * @param array $settings / Settings for this widget instance.
 	 */
 	function render( $settings ) {
 
-		// Get latest posts from database.
+		// Get cached post ids.
+		$post_ids = napoli_get_magazine_post_ids( $this->id, $settings['category'], 4 );
+
+		// Fetch posts from database.
 		$query_arguments = array(
-			'posts_per_page' => 4,
-			'ignore_sticky_posts' => true,
-			'cat' => (int) $settings['category'],
+			'post__in'            => $post_ids,
+			'no_found_rows'       => true,
 		);
 		$posts_query = new WP_Query( $query_arguments );
-		$i = 0;
 
 		// Check if there are posts.
 		if ( $posts_query->have_posts() ) :
 
-			// Display excerpt for first post.
-			set_query_var( 'napoli_post_excerpt', true );
-
 			// Display Posts.
 			while ( $posts_query->have_posts() ) : $posts_query->the_post();
 
-				if ( 0 === $i ) :
+				// Display first post differently.
+				if ( 0 === $posts_query->current_post ) :
 
 					echo '<div class="left-post">';
-					Napoli_Pro::load_theme_template( 'template-parts/widgets/magazine-content', 'large-post' );
+					get_template_part( 'template-parts/widgets/magazine-large-post', 'vertical-box' );
 					echo '</div>';
 
 					echo '<div class="small-posts clearfix">';
 
 				else :
 
-					Napoli_Pro::load_theme_template( 'template-parts/widgets/magazine-content', 'small-post' );
+					get_template_part( 'template-parts/widgets/magazine-small-post', 'vertical-box' );
 
-				endif; $i++;
+				endif;
 
 			endwhile;
 
@@ -163,7 +130,6 @@ class Napoli_Pro_Magazine_Vertical_Box_Widget extends WP_Widget {
 
 		// Reset Postdata.
 		wp_reset_postdata();
-
 	}
 
 	/**
@@ -199,9 +165,7 @@ class Napoli_Pro_Magazine_Vertical_Box_Widget extends WP_Widget {
 			endif;
 
 		endif;
-
-	} // widget_title()
-
+	}
 
 	/**
 	 * Update Widget Settings
@@ -216,7 +180,7 @@ class Napoli_Pro_Magazine_Vertical_Box_Widget extends WP_Widget {
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['category'] = (int) $new_instance['category'];
 
-		$this->delete_widget_cache();
+		napoli_flush_magazine_post_ids();
 
 		return $instance;
 	}
@@ -234,7 +198,7 @@ class Napoli_Pro_Magazine_Vertical_Box_Widget extends WP_Widget {
 
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php esc_html_e( 'Title:', 'napoli-pro' ); ?>
-				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $settings['title']; ?>" />
+				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $settings['title'] ); ?>" />
 			</label>
 		</p>
 
@@ -253,16 +217,6 @@ class Napoli_Pro_Magazine_Vertical_Box_Widget extends WP_Widget {
 			?>
 		</p>
 
-	<?php
-	} // form()
-
-
-	/**
-	 * Delete Widget Cache
-	 */
-	public function delete_widget_cache() {
-
-		wp_cache_delete( 'widget_napoli_magazine_vertical_box', 'widget' );
-
+		<?php
 	}
 }
