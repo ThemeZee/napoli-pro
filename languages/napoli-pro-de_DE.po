@@ -757,8 +757,8 @@ msgstr "Einstellungen"
 #~ msgid "Theme Links"
 #~ msgstr "Theme Links"
 
-#~ msgid "https://themezee.com/themes/admiral/"
-#~ msgstr "https://themezee.com/de/themes/admiral/"
+#~ msgid "https://themezee.com/themes/napoli/"
+#~ msgstr "https://themezee.com/de/themes/napoli/"
 
 #~ msgid "Theme Page"
 #~ msgstr "Theme Seite"
@@ -766,14 +766,14 @@ msgstr "Einstellungen"
 #~ msgid "Theme Demo"
 #~ msgstr "Theme Demo"
 
-#~ msgid "https://themezee.com/docs/admiral-documentation/"
-#~ msgstr "https://themezee.com/de/docs/admiral-dokumentation/"
+#~ msgid "https://themezee.com/docs/napoli-documentation/"
+#~ msgstr "https://themezee.com/de/docs/napoli-dokumentation/"
 
 #~ msgid "Theme Documentation"
 #~ msgstr "Theme Dokumentation"
 
-#~ msgid "https://wordpress.org/support/theme/admiral/reviews/?filter=5"
-#~ msgstr "https://wordpress.org/support/theme/admiral/reviews/?filter=5"
+#~ msgid "https://wordpress.org/support/theme/napoli/reviews/?filter=5"
+#~ msgstr "https://wordpress.org/support/theme/napoli/reviews/?filter=5"
 
 #~ msgid "Rate this theme"
 #~ msgstr "Theme bewerten"
@@ -788,8 +788,8 @@ msgstr "Einstellungen"
 #~ "Kaufe das %s Pro Add-on und erhalte zusätzliche Features und erweiterte "
 #~ "Theme Optionen."
 
-#~ msgid "https://themezee.com/addons/admiral-pro/"
-#~ msgstr "https://themezee.com/de/addons/admiral-pro/"
+#~ msgid "https://themezee.com/addons/napoli-pro/"
+#~ msgstr "https://themezee.com/de/addons/napoli-pro/"
 
 #~ msgid "Learn more about %s Pro"
 #~ msgstr "Erfahre mehr über %s Pro"
@@ -955,8 +955,8 @@ msgstr "Einstellungen"
 #~ msgid "https://themezee.com/"
 #~ msgstr "https://themezee.com/de/"
 
-#~ msgid "Review Admiral"
-#~ msgstr "Admiral bewerten"
+#~ msgid "Review Napoli"
+#~ msgstr "Napoli bewerten"
 
 #~ msgid "rate it"
 #~ msgstr "bewerte es"
