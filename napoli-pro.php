@@ -5,7 +5,7 @@ Plugin URI: http://themezee.com/addons/napoli-pro/
 Description: Adds additional features like custom colors, google fonts, widget areas and footer copyright to the Napoli theme.
 Author: ThemeZee
 Author URI: https://themezee.com/
-Version: 1.3
+Version: 1.3.1
 Text Domain: napoli-pro
 Domain Path: /languages/
 License: GPL v3
@@ -62,7 +62,7 @@ class Napoli_Pro {
 		define( 'NAPOLI_PRO_NAME', 'Napoli Pro' );
 
 		// Define Version Number.
-		define( 'NAPOLI_PRO_VERSION', '1.3' );
+		define( 'NAPOLI_PRO_VERSION', '1.3.1' );
 
 		// Define Plugin Name.
 		define( 'NAPOLI_PRO_PRODUCT_ID', 96583 );
@@ -222,7 +222,7 @@ class Napoli_Pro {
 
 		$options = Napoli_Pro_Settings::instance();
 
-		if ( $options->get( 'license_key' ) <> '' ) :
+		if ( '' !== $options->get( 'license_key' ) ) :
 
 			$license_key = trim( $options->get( 'license_key' ) );
 

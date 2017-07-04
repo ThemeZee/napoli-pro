@@ -24,7 +24,7 @@ class Napoli_Pro_Magazine_Horizontal_Box_Widget extends WP_Widget {
 			esc_html__( 'Magazine (Horizontal Box)', 'napoli-pro' ), // Name.
 			array(
 				'classname' => 'napoli-magazine-horizontal-box-widget',
-				'description' => esc_html__( 'Displays your posts from a selected category in a horizontal box layout.', 'napoli-pro' ),
+				'description' => esc_html__( 'Displays your posts from a selected category in a horizontal box.', 'napoli-pro' ),
 				'customize_selective_refresh' => true,
 			) // Args.
 		);
