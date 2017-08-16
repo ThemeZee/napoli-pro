@@ -138,6 +138,56 @@
 }
 
 /*--------------------------------------------------------------
+# Header Search
+--------------------------------------------------------------*/
+.header-search .header-search-form {
+	position: absolute;
+	right: 0;
+	display: none;
+	margin: 0;
+	padding: 1em;
+	background: #fff;
+	box-shadow: 0 1px 2px #bbb;
+	z-index: 999;
+}
+
+.header-search .header-search-form .search-form {
+	min-width: 300px;
+}
+
+.header-search .header-search-icon {
+	padding: 1.15em;
+}
+
+.header-search .header-search-icon {
+	color: #fff;
+}
+
+.header-search .header-search-icon:hover {
+	cursor: pointer;
+}
+
+.header-search .header-search-icon:focus {
+	outline: none;
+}
+
+.header-search .header-search-icon .genericon-search {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	content: '\f400';
+	vertical-align: middle;
+	text-decoration: inherit;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	font-family: 'Genericons';
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*--------------------------------------------------------------
 # Magazine Widgets
 --------------------------------------------------------------*/
 
@@ -455,6 +505,25 @@
 ## Desktop Small ( < 960px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 60em) {
+	/* Header Search */
+	.header-search .header-search-form {
+		position: static;
+		display: block !important;
+		visibility: visible;
+		margin: 1.5em 0;
+		padding: 0;
+		background: none;
+		box-shadow: none;
+	}
+
+	.header-search .header-search-form .search-form {
+		min-width: auto;
+	}
+
+	.header-search .header-search-icon {
+		display: none;
+	}
+
 	/*** Mobile Header Navigation ***/
 	/* Reset */
 	.header-navigation-menu {

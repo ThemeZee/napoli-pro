@@ -62,6 +62,7 @@ class Napoli_Pro_Customizer {
 			'header_bar_text'          => '',
 			'logo_spacing'             => 0,
 			'header_spacing'           => 20,
+			'header_search'            => false,
 			'author_bio'               => false,
 			'scroll_to_top'            => false,
 			'footer_social_icons_text' => __( 'Stay in Touch', 'napoli-pro' ),
