@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Napoli Pro\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2017-07-04 11:41+0200\n"
-"PO-Revision-Date: 2017-07-04 11:41+0200\n"
+"POT-Creation-Date: 2017-08-31 11:12+0200\n"
+"PO-Revision-Date: 2017-08-31 11:26+0200\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
 "Language: de_DE\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 2.0.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: includes/admin/class-admin-notices.php:52
@@ -175,9 +175,22 @@ msgstr "Standard"
 msgid "Update Fonts"
 msgstr "Schriftarten aktualisieren"
 
-#: includes/customizer/class-customizer.php:66
+#: includes/customizer/class-customizer.php:68
 msgid "Stay in Touch"
 msgstr "Bleibe in Kontakt"
+
+#: includes/modules/class-author-bio.php:60
+#, php-format
+msgid "About %s"
+msgstr "Über %s"
+
+#: includes/modules/class-author-bio.php:62
+msgid "View all posts"
+msgstr "Alle Beiträge ansehen"
+
+#: includes/modules/class-author-bio.php:91
+msgid "Display Author Bio"
+msgstr "Autor Bio anzeigen"
 
 #: includes/modules/class-custom-colors.php:267
 msgid "Theme Colors"
@@ -303,6 +316,19 @@ msgstr "Erscheint in der vierten Footer Spalte."
 msgid "Header Bottom"
 msgstr "Header Unten"
 
+#: includes/modules/class-header-search.php:82
+msgctxt "napoli-pro"
+msgid "Search"
+msgstr "Suche"
+
+#: includes/modules/class-header-search.php:104
+msgid "Header Search"
+msgstr "Header Suche"
+
+#: includes/modules/class-header-search.php:120
+msgid "Enable search field in header"
+msgstr "Suchfeld im Header anzeigen"
+
 #: includes/modules/class-scroll-to-top.php:65
 msgid "Scroll to Top"
 msgstr "Nach oben scrollen"
@@ -387,6 +413,6 @@ msgstr "Magazin (Vertikale Box)"
 msgid "Displays your posts from a selected category in a vertical box."
 msgstr "Zeigt die Beiträge einer gewählten Kategorie in einer vertikalen Box."
 
-#: napoli-pro.php:207
+#: napoli-pro.php:209
 msgid "Settings"
 msgstr "Einstellungen"

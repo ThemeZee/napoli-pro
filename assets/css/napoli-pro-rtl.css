@@ -138,6 +138,56 @@
 }
 
 /*--------------------------------------------------------------
+# Header Search
+--------------------------------------------------------------*/
+.header-search .header-search-form {
+	position: absolute;
+	left: 0;
+	display: none;
+	margin: 0;
+	padding: 1em;
+	background: #fff;
+	box-shadow: 0 1px 2px #bbb;
+	z-index: 999;
+}
+
+.header-search .header-search-form .search-form {
+	min-width: 300px;
+}
+
+.header-search .header-search-icon {
+	padding: 1.15em;
+}
+
+.header-search .header-search-icon {
+	color: #fff;
+}
+
+.header-search .header-search-icon:hover {
+	cursor: pointer;
+}
+
+.header-search .header-search-icon:focus {
+	outline: none;
+}
+
+.header-search .header-search-icon .genericon-search {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	content: '\f400';
+	vertical-align: middle;
+	text-decoration: inherit;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	font-family: 'Genericons';
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*--------------------------------------------------------------
 # Magazine Widgets
 --------------------------------------------------------------*/
 
@@ -158,14 +208,14 @@
 }
 
 /* Magazine Posts Columns Widget */
-.napoli_magazine_columns {
+.napoli-magazine-columns-widget {
 	padding: 0;
 	border: none;
 	background: none;
 	box-shadow: none;
 }
 
-.napoli_magazine_columns .widget-magazine-posts {
+.napoli-magazine-columns-widget .widget-magazine-posts {
 	margin-bottom: 0;
 }
 
@@ -191,6 +241,46 @@
 	box-shadow: 0 1px 2px #bbb;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
+}
+
+/*--------------------------------------------------------------
+# Author Bio
+--------------------------------------------------------------*/
+.entry-author {
+	margin: 0;
+	padding: 1.5rem;
+	border-top: 1px solid #eee;
+}
+
+.entry-author .author-avatar {
+	float: right;
+	margin: 0 0 0.15em 1.5em;
+	max-width: 25%;
+}
+
+.entry-author .author-avatar img {
+	vertical-align: top;
+}
+
+.entry-author .author-heading .author-title {
+	display: inline-block;
+	margin: 0 0 0.25em 1em;
+	padding: 0;
+	font-size: 17px;
+	font-size: 1.0625rem;
+}
+
+.entry-author .author-heading .author-link {
+	display: inline-block;
+	margin: 0 0 0.5em;
+	font-size: 16px;
+	font-size: 1rem;
+}
+
+.entry-author .author-bio {
+	margin: 0;
+	font-size: 16px;
+	font-size: 1rem;
 }
 
 /*--------------------------------------------------------------
@@ -316,6 +406,47 @@
 }
 
 /*--------------------------------------------------------------
+# Scroll to Top Button
+--------------------------------------------------------------*/
+.scroll-to-top-button {
+	z-index: 9999;
+	width: 45px;
+	height: 45px;
+	display: inline;
+	position: fixed;
+	cursor: pointer;
+	margin: 0 auto;
+	padding: 0;
+	left: 1.5em;
+	bottom: 1.5em;
+	background: #ee4455;
+	transition: none;
+}
+
+.scroll-to-top-button:focus,
+.scroll-to-top-button:active {
+	background: #ee4455;
+}
+
+.scroll-to-top-button:hover {
+	background: #303030;
+}
+
+.scroll-to-top-button:after {
+	display: inline-block;
+	margin: 0 3px 0 0;
+	color: #fff;
+	content: '\f432';
+	vertical-align: top;
+	text-decoration: inherit;
+	font-size: 30px;
+	font-family: 'Genericons';
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/*--------------------------------------------------------------
 # Media Queries
 --------------------------------------------------------------*/
 
@@ -346,6 +477,11 @@
 	.footer-widget-column {
 		padding-left: 1.5em;
 	}
+
+	.scroll-to-top-button {
+		left: 0.75em;
+		bottom: 0.75em;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -369,6 +505,25 @@
 ## Desktop Small ( < 960px )
 --------------------------------------------------------------*/
 @media only screen and (max-width: 60em) {
+	/* Header Search */
+	.header-search .header-search-form {
+		position: static;
+		display: block !important;
+		visibility: visible;
+		margin: 1.5em 0;
+		padding: 0;
+		background: none;
+		box-shadow: none;
+	}
+
+	.header-search .header-search-form .search-form {
+		min-width: auto;
+	}
+
+	.header-search .header-search-icon {
+		display: none;
+	}
+
 	/*** Mobile Header Navigation ***/
 	/* Reset */
 	.header-navigation-menu {
@@ -603,6 +758,10 @@
 	.widget-magazine-vertical-box .left-post .large-post .entry-meta {
 		display: block;
 	}
+
+	.scroll-to-top-button {
+		display: none !important;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -650,6 +809,22 @@
 }
 
 @media only screen and (max-width: 30em) {
+	/* Author Bio */
+	.entry-author .author-avatar {
+		float: none;
+		margin: 0 0 1em;
+		max-width: 100%;
+	}
+
+	.entry-author .author-heading .author-title {
+		display: block;
+		margin: 0 0 0.25em;
+	}
+
+	.entry-author .author-heading .author-link {
+		display: block;
+	}
+
 	.widget-magazine-horizontal-box .magazine-grid-three-columns .post-column:last-child {
 		display: block;
 	}
