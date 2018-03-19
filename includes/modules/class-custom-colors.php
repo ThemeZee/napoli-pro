@@ -64,18 +64,27 @@ class Napoli_Pro_Custom_Colors {
 					.site-title,
 					.site-title a:link,
 					.site-title a:visited,
+					.main-navigation-toggle:after,
 					.main-navigation-menu a:link,
 					.main-navigation-menu a:visited,
+					.main-navigation-menu .submenu-dropdown-toggle:before,
 					.header-social-icons .social-icons-menu li a {
 						color: #111111;
 					}
 					.site-title a:hover,
 					.site-title a:active,
+					.main-navigation-toggle:hover:after,
 					.main-navigation-menu a:hover,
 					.main-navigation-menu a:active,
+					.main-navigation-menu .submenu-dropdown-toggle:hover:before,
 					.header-social-icons .social-icons-menu li a:active,
 					.header-social-icons .social-icons-menu li a:hover {
 						color: rgba(0,0,0,0.5);
+					}
+
+					.main-navigation-menu-wrap,
+					.main-navigation-menu a {
+						border-color: rgba(0,0,0,0.1);
 					}
 					';
 			}

@@ -2,6 +2,10 @@
 Napoli Pro Changelog
 ===================================
 
+Version 1.4.1
+-----------------------------------
+* fixed mobile navigation colors for light header backgrounds
+
 Version 1.4
 -----------------------------------
 * added Header Search feature
