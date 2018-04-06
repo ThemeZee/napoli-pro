@@ -77,7 +77,6 @@ class Napoli_Pro_Customizer {
 			'text_font'                => 'Open Sans',
 			'title_font'               => 'Montserrat',
 			'navi_font'                => 'Montserrat',
-			'available_fonts'          => 'favorites',
 		);
 
 		return $default_options;

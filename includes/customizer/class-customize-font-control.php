@@ -53,11 +53,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 				'standard' => _x( 'Default', 'default font button', 'napoli-pro' ),
 			);
 
-			// Get Theme Options.
-			$theme_options = Napoli_Pro_Customizer::get_theme_options();
-
 			// Set Fonts.
-			$this->fonts = Napoli_Pro_Custom_Font_Lists::get_fonts( $theme_options['available_fonts'] );
+			$this->fonts = Napoli_Pro_Custom_Fonts::get_google_fonts();
 
 			parent::__construct( $manager, $id, $args );
 
