@@ -2,6 +2,10 @@
 Napoli Pro Changelog
 ===================================
 
+Version 1.5.1
+-----------------------------------
+* fixed search icon color for light header backgrounds
+
 Version 1.5
 -----------------------------------
 * added Local Fonts to the Typography settings in the Customizer

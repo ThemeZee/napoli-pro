@@ -68,7 +68,8 @@ class Napoli_Pro_Custom_Colors {
 					.main-navigation-menu a:link,
 					.main-navigation-menu a:visited,
 					.main-navigation-menu .submenu-dropdown-toggle:before,
-					.header-social-icons .social-icons-menu li a {
+					.header-social-icons .social-icons-menu li a,
+					.header-search .header-search-icon {
 						color: #111111;
 					}
 					.site-title a:hover,
@@ -78,7 +79,8 @@ class Napoli_Pro_Custom_Colors {
 					.main-navigation-menu a:active,
 					.main-navigation-menu .submenu-dropdown-toggle:hover:before,
 					.header-social-icons .social-icons-menu li a:active,
-					.header-social-icons .social-icons-menu li a:hover {
+					.header-social-icons .social-icons-menu li a:hover,
+					.header-search .header-search-icon:hover {
 						color: rgba(0,0,0,0.5);
 					}
 
