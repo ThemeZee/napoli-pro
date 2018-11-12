@@ -8,7 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Custom Colors Class
@@ -29,6 +31,9 @@ class Napoli_Pro_Custom_Colors {
 
 		// Add Custom Color CSS code to custom stylesheet output.
 		add_filter( 'napoli_pro_custom_css_stylesheet', array( __CLASS__, 'custom_colors_css' ) );
+
+		// Add Custom Color CSS code to the Gutenberg editor.
+		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'custom_editor_colors_css' ) );
 
 		// Add Custom Color Settings.
 		add_action( 'customize_register', array( __CLASS__, 'color_settings' ) );
@@ -56,7 +61,7 @@ class Napoli_Pro_Custom_Colors {
 				.site-header {
 					background: ' . $theme_options['header_color'] . ';
 				}
-				';
+			';
 
 			// Check if a dark background color was chosen.
 			if ( self::is_color_light( $theme_options['header_color'] ) ) {
@@ -88,7 +93,7 @@ class Napoli_Pro_Custom_Colors {
 					.main-navigation-menu a {
 						border-color: rgba(0,0,0,0.1);
 					}
-					';
+				';
 			}
 		}
 
@@ -99,7 +104,7 @@ class Napoli_Pro_Custom_Colors {
 				.header-navigation-wrap {
 					background: ' . $theme_options['navigation_color'] . ';
 				}
-				';
+			';
 
 			// Check if a dark background color was chosen.
 			if ( self::is_color_dark( $theme_options['navigation_color'] ) ) {
@@ -113,7 +118,7 @@ class Napoli_Pro_Custom_Colors {
 					.header-navigation-menu > li > a:active {
 						color: rgba(255,255,255,0.5);
 					}
-					';
+				';
 			}
 		}
 
@@ -132,7 +137,7 @@ class Napoli_Pro_Custom_Colors {
 				.entry-title a:active {
 					color: #303030;
 				}
-				';
+			';
 		}
 
 		// Set Widget Title Color.
@@ -146,7 +151,7 @@ class Napoli_Pro_Custom_Colors {
 				.related-posts-title {
 					background: ' . $theme_options['widget_title_color'] . ';
 				}
-				';
+			';
 
 			// Check if a dark background color was chosen.
 			if ( self::is_color_light( $theme_options['widget_title_color'] ) ) {
@@ -168,7 +173,7 @@ class Napoli_Pro_Custom_Colors {
 					.comment-reply-title small a:visited {
 						color: rgba(0,0,0,0.5);
 					}
-					';
+				';
 			}
 		}
 
@@ -178,7 +183,8 @@ class Napoli_Pro_Custom_Colors {
 			$custom_css .= '
 				a,
 				a:link,
-				a:visited {
+				a:visited,
+				.has-primary-color {
 					color: ' . $theme_options['link_color'] . ';
 				}
 
@@ -209,15 +215,16 @@ class Napoli_Pro_Custom_Colors {
 				.tzwb-social-icons .social-icons-menu li a:visited,
 				.scroll-to-top-button,
 				.scroll-to-top-button:focus,
-				.scroll-to-top-button:active {
-					background: ' . $theme_options['link_color'] . ';
+				.scroll-to-top-button:active,
+				.has-primary-background-color {
+					background-color: ' . $theme_options['link_color'] . ';
 				}
 
 				.tzwb-social-icons .social-icons-menu li a:hover,
 				.tzwb-social-icons .social-icons-menu li a:active {
 					background: #303030;
 				}
-				';
+			';
 		}
 
 		// Set Footer Color.
@@ -228,7 +235,7 @@ class Napoli_Pro_Custom_Colors {
 				.footer-widgets-background {
 					background: ' . $theme_options['footer_color'] . ';
 				}
-				';
+			';
 
 			// Check if a dark background color was chosen.
 			if ( self::is_color_light( $theme_options['footer_color'] ) ) {
@@ -258,12 +265,75 @@ class Napoli_Pro_Custom_Colors {
 					.footer-widgets .widget a:active {
 						color: rgba(0,0,0,0.5);
 					}
-					';
+				';
 			}
 		}
 
 		return $custom_css;
+	}
 
+	/**
+	 * Adds Color CSS styles in the Gutenberg Editor to override default colors
+	 *
+	 * @return void
+	 */
+	static function custom_editor_colors_css() {
+		$custom_css = '';
+
+		// Get Theme Options from Database.
+		$theme_options = Napoli_Pro_Customizer::get_theme_options();
+
+		// Get Default Fonts from settings.
+		$default_options = Napoli_Pro_Customizer::get_default_options();
+
+		// Set Primary Color.
+		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
+
+			$custom_css .= '
+				.has-primary-color,
+				.edit-post-visual-editor .editor-block-list__block a {
+					color: ' . $theme_options['link_color'] . ';
+				}
+				.has-primary-background-color {
+					background-color: ' . $theme_options['link_color'] . ';
+				}
+			';
+		}
+
+		// Set Title Color.
+		if ( $theme_options['title_color'] !== $default_options['title_color'] ) {
+
+			$custom_css .= '
+				.edit-post-visual-editor .editor-post-title__block .editor-post-title__input {
+					color: ' . $theme_options['title_color'] . ';
+				}
+			';
+		}
+
+		// Add Custom CSS.
+		if ( '' !== $custom_css ) {
+			wp_add_inline_style( 'napoli-editor-styles', $custom_css );
+		}
+	}
+
+	/**
+	 * Change primary color in Gutenberg Editor.
+	 *
+	 * @return array $editor_settings
+	 */
+	static function change_primary_color( $color ) {
+		// Get Theme Options from Database.
+		$theme_options = Napoli_Pro_Customizer::get_theme_options();
+
+		// Get Default Fonts from settings.
+		$default_options = Napoli_Pro_Customizer::get_default_options();
+
+		// Set Primary Color.
+		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
+			$color = $theme_options['link_color'];
+		}
+
+		return $color;
 	}
 
 	/**
@@ -277,9 +347,8 @@ class Napoli_Pro_Custom_Colors {
 		$wp_customize->add_section( 'napoli_pro_section_colors', array(
 			'title'    => __( 'Theme Colors', 'napoli-pro' ),
 			'priority' => 60,
-			'panel' => 'napoli_options_panel',
-			)
-		);
+			'panel'    => 'napoli_options_panel',
+		) );
 
 		// Get Default Colors from settings.
 		$default_options = Napoli_Pro_Customizer::get_default_options();
@@ -287,16 +356,15 @@ class Napoli_Pro_Custom_Colors {
 		// Add Navigation Primary Color setting.
 		$wp_customize->add_setting( 'napoli_theme_options[header_color]', array(
 			'default'           => $default_options['header_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'napoli_theme_options[header_color]', array(
-				'label'      => _x( 'Header', 'color setting', 'napoli-pro' ),
-				'section'    => 'napoli_pro_section_colors',
-				'settings'   => 'napoli_theme_options[header_color]',
+				'label'    => _x( 'Header', 'color setting', 'napoli-pro' ),
+				'section'  => 'napoli_pro_section_colors',
+				'settings' => 'napoli_theme_options[header_color]',
 				'priority' => 10,
 			)
 		) );
@@ -304,16 +372,15 @@ class Napoli_Pro_Custom_Colors {
 		// Add Navigation Color setting.
 		$wp_customize->add_setting( 'napoli_theme_options[navigation_color]', array(
 			'default'           => $default_options['navigation_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'napoli_theme_options[navigation_color]', array(
-				'label'      => _x( 'Navigation', 'color setting', 'napoli-pro' ),
-				'section'    => 'napoli_pro_section_colors',
-				'settings'   => 'napoli_theme_options[navigation_color]',
+				'label'    => _x( 'Navigation', 'color setting', 'napoli-pro' ),
+				'section'  => 'napoli_pro_section_colors',
+				'settings' => 'napoli_theme_options[navigation_color]',
 				'priority' => 20,
 			)
 		) );
@@ -321,16 +388,15 @@ class Napoli_Pro_Custom_Colors {
 		// Add Content Primary Color setting.
 		$wp_customize->add_setting( 'napoli_theme_options[link_color]', array(
 			'default'           => $default_options['link_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'refresh',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'napoli_theme_options[link_color]', array(
-				'label'      => _x( 'Links and Buttons', 'color setting', 'napoli-pro' ),
-				'section'    => 'napoli_pro_section_colors',
-				'settings'   => 'napoli_theme_options[link_color]',
+				'label'    => _x( 'Links and Buttons', 'color setting', 'napoli-pro' ),
+				'section'  => 'napoli_pro_section_colors',
+				'settings' => 'napoli_theme_options[link_color]',
 				'priority' => 30,
 			)
 		) );
@@ -338,16 +404,15 @@ class Napoli_Pro_Custom_Colors {
 		// Add Content Secondary Color setting.
 		$wp_customize->add_setting( 'napoli_theme_options[title_color]', array(
 			'default'           => $default_options['title_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'napoli_theme_options[title_color]', array(
-				'label'      => _x( 'Headings', 'color setting', 'napoli-pro' ),
-				'section'    => 'napoli_pro_section_colors',
-				'settings'   => 'napoli_theme_options[title_color]',
+				'label'    => _x( 'Headings', 'color setting', 'napoli-pro' ),
+				'section'  => 'napoli_pro_section_colors',
+				'settings' => 'napoli_theme_options[title_color]',
 				'priority' => 40,
 			)
 		) );
@@ -355,16 +420,15 @@ class Napoli_Pro_Custom_Colors {
 		// Add Content Secondary Color setting.
 		$wp_customize->add_setting( 'napoli_theme_options[widget_title_color]', array(
 			'default'           => $default_options['widget_title_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'napoli_theme_options[widget_title_color]', array(
-				'label'      => _x( 'Widget Titles', 'color setting', 'napoli-pro' ),
-				'section'    => 'napoli_pro_section_colors',
-				'settings'   => 'napoli_theme_options[widget_title_color]',
+				'label'    => _x( 'Widget Titles', 'color setting', 'napoli-pro' ),
+				'section'  => 'napoli_pro_section_colors',
+				'settings' => 'napoli_theme_options[widget_title_color]',
 				'priority' => 40,
 			)
 		) );
@@ -372,20 +436,18 @@ class Napoli_Pro_Custom_Colors {
 		// Add Footer Color setting.
 		$wp_customize->add_setting( 'napoli_theme_options[footer_color]', array(
 			'default'           => $default_options['footer_color'],
-			'type'           	=> 'option',
+			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
+		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'napoli_theme_options[footer_color]', array(
-				'label'      => _x( 'Footer', 'color setting', 'napoli-pro' ),
-				'section'    => 'napoli_pro_section_colors',
-				'settings'   => 'napoli_theme_options[footer_color]',
+				'label'    => _x( 'Footer', 'color setting', 'napoli-pro' ),
+				'section'  => 'napoli_pro_section_colors',
+				'settings' => 'napoli_theme_options[footer_color]',
 				'priority' => 50,
 			)
 		) );
-
 	}
 
 	/**
@@ -427,3 +489,4 @@ class Napoli_Pro_Custom_Colors {
 
 // Run Class.
 add_action( 'init', array( 'Napoli_Pro_Custom_Colors', 'setup' ) );
+add_filter( 'napoli_primary_color', array( 'Napoli_Pro_Custom_Colors', 'change_primary_color' ) );

@@ -5,11 +5,11 @@ Plugin URI: http://themezee.com/addons/napoli-pro/
 Description: Adds additional features like custom colors, google fonts, widget areas and footer copyright to the Napoli theme.
 Author: ThemeZee
 Author URI: https://themezee.com/
-Version: 1.5.1
+Version: 1.6
 Text Domain: napoli-pro
 Domain Path: /languages/
-License: GPL v3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Napoli Pro
 Copyright(C) 2017, ThemeZee.com - support@themezee.com
@@ -17,7 +17,9 @@ Copyright(C) 2017, ThemeZee.com - support@themezee.com
 */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 
 /**
@@ -48,7 +50,6 @@ class Napoli_Pro {
 
 		// Setup Action Hooks.
 		self::setup_actions();
-
 	}
 
 	/**
@@ -62,7 +63,7 @@ class Napoli_Pro {
 		define( 'NAPOLI_PRO_NAME', 'Napoli Pro' );
 
 		// Define Version Number.
-		define( 'NAPOLI_PRO_VERSION', '1.5.1' );
+		define( 'NAPOLI_PRO_VERSION', '1.6' );
 
 		// Define Plugin Name.
 		define( 'NAPOLI_PRO_PRODUCT_ID', 96583 );
@@ -78,7 +79,6 @@ class Napoli_Pro {
 
 		// Plugin Root File.
 		define( 'NAPOLI_PRO_PLUGIN_FILE', __FILE__ );
-
 	}
 
 	/**
@@ -122,7 +122,6 @@ class Napoli_Pro {
 		require_once NAPOLI_PRO_PLUGIN_DIR . '/includes/widgets/widget-magazine-columns.php';
 		require_once NAPOLI_PRO_PLUGIN_DIR . '/includes/widgets/widget-magazine-horizontal-box.php';
 		require_once NAPOLI_PRO_PLUGIN_DIR . '/includes/widgets/widget-magazine-vertical-box.php';
-
 	}
 
 	/**
@@ -144,7 +143,6 @@ class Napoli_Pro {
 
 		// Add automatic plugin updater from ThemeZee Store API.
 		add_action( 'admin_init', array( __CLASS__, 'plugin_updater' ), 0 );
-
 	}
 
 	/**
@@ -177,7 +175,6 @@ class Napoli_Pro {
 
 		// Add Custom CSS.
 		wp_add_inline_style( 'napoli-pro', $custom_css );
-
 	}
 
 	/**
@@ -195,7 +192,6 @@ class Napoli_Pro {
 		register_widget( 'Napoli_Pro_Magazine_Columns_Widget' );
 		register_widget( 'Napoli_Pro_Magazine_Horizontal_Box_Widget' );
 		register_widget( 'Napoli_Pro_Magazine_Vertical_Box_Widget' );
-
 	}
 
 	/**
@@ -230,16 +226,14 @@ class Napoli_Pro {
 
 			// Setup the updater.
 			$napoli_pro_updater = new Napoli_Pro_Plugin_Updater( NAPOLI_PRO_STORE_API_URL, __FILE__, array(
-					'version' 	=> NAPOLI_PRO_VERSION,
-					'license' 	=> $license_key,
-					'item_name' => NAPOLI_PRO_NAME,
-					'item_id'   => NAPOLI_PRO_PRODUCT_ID,
-					'author' 	=> 'ThemeZee',
-				)
-			);
+				'version'   => NAPOLI_PRO_VERSION,
+				'license'   => $license_key,
+				'item_name' => NAPOLI_PRO_NAME,
+				'item_id'   => NAPOLI_PRO_PRODUCT_ID,
+				'author'    => 'ThemeZee',
+			) );
 
 		endif;
-
 	}
 }
 
