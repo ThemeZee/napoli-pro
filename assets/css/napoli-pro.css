@@ -1,12 +1,16 @@
 /*
  * Napoli Pro CSS
  *
- * Copyright(C) 2015, ThemeZee.com - support@themezee.com
- * License: GPL v3
- * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ * Copyright(C) 2020, ThemeZee.com - support@themezee.com
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  *
  * @package Napoli Pro
  */
+
+/*--------------------------------------------------------------
+# - CSS Variables
+--------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 # Header Navigation
@@ -111,10 +115,10 @@
 	font-size: 14px;
 	font-family: 'Genericons';
 	line-height: 1;
-	-webkit-transform:rotate(270deg);
-	-moz-transform:rotate(270deg);
-	-o-transform:rotate(270deg);
-	-ms-transform:rotate(270deg);
+	-webkit-transform: rotate(270deg);
+	-moz-transform: rotate(270deg);
+	-o-transform: rotate(270deg);
+	-ms-transform: rotate(270deg);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -288,7 +292,7 @@
 --------------------------------------------------------------*/
 .footer-widgets-background {
 	padding: 2em 0 0;
-	border-bottom: 1px solid rgba(255,255,255,0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 	background: #ee4455;
 }
 
@@ -331,7 +335,7 @@
 
 /* Footer Widget Styling */
 .footer-widgets .widget {
-	border: 1px solid rgba(255,255,255,0.1);
+	border: 1px solid rgba(255, 255, 255, 0.1);
 	background: none;
 	box-shadow: none;
 	color: #fff;
@@ -343,23 +347,23 @@
 
 .footer-widgets .widget-title {
 	padding: 0 0 0.75em;
-	border-bottom: 1px solid rgba(255,255,255,0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 	background: none;
 	color: #fff;
 }
 
 .footer-widgets .widget a:link,
-.footer-widgets .widget a:visited  {
+.footer-widgets .widget a:visited {
 	color: #fff;
 }
 
 .footer-widgets .widget a:hover,
-.footer-widgets .widget a:active  {
-	color: rgba(255,255,255,0.5);
+.footer-widgets .widget a:active {
+	color: rgba(255, 255, 255, 0.5);
 }
 
 /*--------------------------------------------------------------
-# Footer Navigation
+# Footer Menu
 --------------------------------------------------------------*/
 .footer-navigation {
 	display: inline-block;
@@ -402,7 +406,7 @@
 
 .footer-navigation-menu a:hover,
 .footer-navigation-menu a:active {
-	color: rgba(255,255,255,0.5);
+	color: rgba(255, 255, 255, 0.5);
 }
 
 /*--------------------------------------------------------------
@@ -572,13 +576,13 @@
 	.header-navigation-menu {
 		float: left;
 		width: 100%;
-		border-top: 1px solid rgba(255,255,255,0.2);
+		border-top: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
 	.header-navigation-menu a {
 		display: block;
 		clear: left;
-		border-bottom: 1px solid rgba(255,255,255,0.2);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 	}
 
 	.header-navigation-menu a:link,
@@ -663,7 +667,6 @@
 	.header-navigation-menu ul .submenu-dropdown-toggle {
 		padding: 0.5em 1em;
 	}
-
 
 	.header-navigation-menu ul .submenu-dropdown-toggle:before {
 		color: #777;
@@ -843,7 +846,6 @@
 		font-size: 0.9375rem;
 	}
 }
-
 
 /*--------------------------------------------------------------
 # Media Query Fixes
