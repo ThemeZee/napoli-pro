@@ -39,29 +39,30 @@ class Napoli_Pro_Header_Menu {
 	 */
 	static function display_header_menu() {
 
-		// Check if there is a header menu.
-		if ( has_nav_menu( 'secondary' ) ) : ?>
+		// Check if there is a top navigation menu.
+		if ( has_nav_menu( 'secondary' ) ) :
+			?>
 
-			<div id="header-navigation-wrap" class="header-navigation-wrap clearfix">
+			<div class="secondary-navigation">
 
-				<nav id="header-navigation" class="secondary-navigation navigation container clearfix" role="navigation">
+				<nav class="header-navigation container" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Menu', 'napoli-pro' ); ?>">
 
-					<?php // Display Top Navigation.
-					wp_nav_menu( array(
-						'theme_location' => 'secondary',
-						'container' => false,
-						'menu_class' => 'header-navigation-menu',
-						'echo' => true,
-						'fallback_cb' => '',
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'secondary',
+							'menu_id'        => 'secondary-menu',
+							'container'      => false,
 						)
-					); ?>
+					);
+					?>
 
 				</nav>
 
-			</div>
+			</div><!-- .secondary-navigation -->
 
-		<?php endif;
-
+			<?php
+		endif;
 	}
 
 	/**

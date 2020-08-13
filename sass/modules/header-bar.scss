@@ -1,3 +1,246 @@
+/* Secondary Navigation */
+.secondary-navigation {
+	position: relative;
+	width: 100%;
+}
+
+.secondary-navigation.toggled-on {
+	padding: 0 1.5em 1.5em;
+}
+
+.header-navigation {
+	background: #fff;
+	padding: 0;
+}
+
+.header-navigation ul {
+	margin: 0;
+	padding: 0;
+	color: #444;
+	list-style: none;
+	@include font-size(15);
+}
+
+/* Hide the menu on small screens when JavaScript is available. */
+.header-navigation ul,
+.header-navigation .menu-item-has-children > a > .icon,
+.header-navigation ul a > .icon {
+	display: none;
+}
+
+.secondary-navigation.toggled-on .header-navigation > ul.menu {
+	display: block;
+}
+
+/* Menu Items Styling */
+.header-navigation ul li {
+	position: relative;
+	margin: 0;
+}
+
+.header-navigation ul a {
+	display: block;
+	margin: 0;
+	padding: 1em 1.25em;
+	border-top: 1px solid #eee;
+	text-decoration: none;
+}
+
+.header-navigation > ul > li:first-child > a {
+	border-top: none;
+}
+
+.header-navigation ul a:link,
+.header-navigation ul a:visited {
+	color: #444;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+.header-navigation ul a:hover,
+.header-navigation ul a:active,
+.header-navigation ul a:focus {
+	color: #999;
+}
+
+.header-navigation ul li.current-menu-item > a {
+	text-decoration: underline;
+}
+
+/* Submenus */
+.header-navigation ul ul {
+	@include font-size(14);
+}
+
+.is-amp-page .header-navigation ul ul,
+.header-navigation ul ul.toggled-on {
+	display: block;
+}
+
+.header-navigation ul ul a {
+	padding-left: 2.5em;
+}
+
+.header-navigation ul ul ul a {
+	padding-left: 4em;
+}
+
+.header-navigation ul ul ul ul a {
+	padding-left: 6em;
+}
+
+/* Submenu Dropdown Toggles */
+.header-navigation .dropdown-toggle {
+	position: absolute;
+	display: block;
+	top: 0;
+	right: 0;
+	padding: 0.8em 1.2em;
+	background: none;
+	border: none;
+}
+
+.header-navigation .dropdown-toggle:focus {
+	outline: thin dotted;
+	color: #444;
+	background: none;
+}
+
+.header-navigation .dropdown-toggle:hover,
+.header-navigation .dropdown-toggle:active {
+	background: none;
+}
+
+.header-navigation .dropdown-toggle .icon {
+	margin: 0.3em 0 0;
+	width: 22px;
+	height: 22px;
+	vertical-align: top;
+	fill: #444;
+	transition: fill 0.2s ease;
+}
+
+.header-navigation .dropdown-toggle:hover .icon,
+.header-navigation .dropdown-toggle:active .icon,
+.header-navigation .dropdown-toggle:focus .icon {
+	fill: #999;
+}
+
+.header-navigation .dropdown-toggle.toggled-on .icon {
+	-ms-transform: rotate(-180deg); /* IE 9 */
+	-webkit-transform: rotate(-180deg); /* Chrome, Safari, Opera */
+	transform: rotate(-180deg);
+}
+
+.header-navigation ul ul .dropdown-toggle {
+	padding: 0.75em 1em;
+}
+
+.header-navigation ul ul .dropdown-toggle .icon {
+	width: 20px;
+	height: 20px;
+}
+
+@media only screen and (min-width: 60em) {
+	.header-navigation .dropdown-toggle {
+		display: none;
+	}
+
+	.header-navigation ul,
+	.header-navigation ul ul {
+		display: block;
+	}
+
+	/* Header Navigation */
+	#masthead .secondary-navigation {
+		display: flex;
+		width: auto;
+		align-items: center;
+		padding: 0;
+		background: #fff;
+		box-shadow: 0 1px 2px #bbb;
+	}
+
+	#masthead .header-navigation > ul.menu {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-flow: row wrap;
+		flex-flow: row wrap;
+		margin: 0 1rem;
+		border-bottom: none;
+	}
+
+	.header-navigation > ul > li > a {
+		border: none;
+	}
+
+	/* Dropdown Menus */
+	.header-navigation ul ul {
+		position: absolute;
+		left: -999em;
+		top: 100%;
+		z-index: 99999;
+		background: #fff;
+		box-shadow: 0 1px 2px #bbb;
+	}
+
+	.header-navigation ul li:hover > ul,
+	.header-navigation ul li.focus > ul {
+		right: auto;
+		left: 0;
+	}
+
+	.header-navigation ul ul li a {
+		width: 16rem;
+	}
+
+	.header-navigation ul ul ul {
+		left: -999em;
+		top: 0;
+	}
+
+	.header-navigation ul ul li:hover > ul,
+	.header-navigation ul ul li.focus > ul {
+		right: auto;
+		left: 100%;
+	}
+
+	.header-navigation ul ul li a,
+	.header-navigation ul ul ul li a,
+	.header-navigation ul ul ul ul li a {
+		padding: 0.8em 1em;
+	}
+
+	/* Dropdown Icons */
+	.header-navigation .menu-item-has-children > a > .icon {
+		position: relative;
+		display: inline-block;
+		left: 0.4rem;
+		top: 0.1rem;
+		width: 12px;
+		height: 12px;
+		fill: #444;
+		transition: fill 0.2s ease;
+	}
+
+	.header-navigation ul ul .menu-item-has-children > a > .icon {
+		position: absolute;
+		left: auto;
+		right: 1em;
+		top: 50%;
+		margin-top: -0.3rem;
+		-webkit-transform: rotate(-90deg);
+		-ms-transform: rotate(-90deg);
+		transform: rotate(-90deg);
+	}
+
+	.header-navigation ul .menu-item-has-children > a:hover > .icon {
+		fill: #999;
+	}
+}
+
+/*
 .header-navigation-toggle {
 	display: none;
 }
@@ -123,3 +366,4 @@
 .header-navigation-menu li.current-menu-item > a:after {
 	text-decoration: none;
 }
+*/
