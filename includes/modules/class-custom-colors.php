@@ -69,28 +69,40 @@ class Napoli_Pro_Custom_Colors {
 					.site-title,
 					.site-title a:link,
 					.site-title a:visited,
-					.main-navigation-toggle:after,
-					.main-navigation-menu a:link,
-					.main-navigation-menu a:visited,
-					.main-navigation-menu .submenu-dropdown-toggle:before,
+					.main-navigation ul a:link,
+					.main-navigation ul a:visited,
 					.header-social-icons .social-icons-menu li a,
 					.header-search .header-search-icon {
 						color: #111111;
 					}
+
 					.site-title a:hover,
 					.site-title a:active,
-					.main-navigation-toggle:hover:after,
-					.main-navigation-menu a:hover,
-					.main-navigation-menu a:active,
-					.main-navigation-menu .submenu-dropdown-toggle:hover:before,
+					.main-navigation ul a:hover,
+					.main-navigation ul a:active,
 					.header-social-icons .social-icons-menu li a:active,
 					.header-social-icons .social-icons-menu li a:hover,
 					.header-search .header-search-icon:hover {
 						color: rgba(0,0,0,0.5);
 					}
 
-					.main-navigation-menu-wrap,
-					.main-navigation-menu a {
+					.mobile-menu-toggle .icon,
+					.main-navigation .dropdown-toggle .icon,
+					.main-navigation ul .menu-item-has-children > a > .icon {
+					    fill: #111111;
+					}
+
+					.mobile-menu-toggle:hover .icon,
+					.mobile-menu-toggle:active .icon,
+					.main-navigation .dropdown-toggle:hover .icon,
+					.main-navigation .dropdown-toggle:active .icon,
+					.main-navigation ul .menu-item-has-children > a:hover > .icon,
+					.main-navigation ul .menu-item-has-children > a:active > .icon {
+						fill: rgba(0,0,0,0.5);
+					}
+
+					.main-navigation ul-wrap,
+					.main-navigation ul a {
 						border-color: rgba(0,0,0,0.1);
 					}
 				';
@@ -101,7 +113,7 @@ class Napoli_Pro_Custom_Colors {
 		if ( $theme_options['navigation_color'] != $default_options['navigation_color'] ) {
 
 			$custom_css .= '
-				.header-navigation-wrap {
+				.secondary-navigation {
 					background: ' . $theme_options['navigation_color'] . ';
 				}
 			';
@@ -109,14 +121,31 @@ class Napoli_Pro_Custom_Colors {
 			// Check if a dark background color was chosen.
 			if ( self::is_color_dark( $theme_options['navigation_color'] ) ) {
 				$custom_css .= '
-					.header-navigation-menu > li > a,
-					.header-navigation-menu > li > a:link,
-					.header-navigation-menu > li > a:visited {
+					.header-navigation > ul > li > a,
+					.header-navigation > ul > li > a:link,
+					.header-navigation > ul > li > a:visited {
 						color: #ffffff;
 					}
-					.header-navigation-menu > li > a:hover,
-					.header-navigation-menu > li > a:active {
+
+					.header-navigation > ul > li > a:hover,
+					.header-navigation > ul > li > a:active {
 						color: rgba(255,255,255,0.5);
+					}
+
+					.header-navigation > ul > li > .dropdown-toggle .icon,
+					.header-navigation > ul > .menu-item-has-children > a > .icon {
+					    fill: #ffffff;
+					}
+
+					.header-navigation > ul > li > .dropdown-toggle:hover .icon,
+					.header-navigation > ul > li > .dropdown-toggle:active .icon,
+					.header-navigation > ul > .menu-item-has-children > a:hover > .icon,
+					.header-navigation > ul > .menu-item-has-children > a:active > .icon {
+						fill:rgba(255,255,255,0.5);
+					}
+
+					.header-navigation > ul > li > a {
+						border-color: rgba(255,255,255,0.1);
 					}
 				';
 			}

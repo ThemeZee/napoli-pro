@@ -46,11 +46,17 @@
 				hovercolor = '#cccccc';
 			}
 
-			$( '.site-title, .site-title a, .main-navigation-menu a, .header-social-icons .social-icons-menu li a' )
+			$( '.site-title, .site-title a, .main-navigation ul a, .header-social-icons .social-icons-menu li a' )
 				.css( 'color', textcolor );
-			$('.site-title, .site-title a, .main-navigation-menu a, .header-social-icons .social-icons-menu li a')
+			$('.site-title, .site-title a, .main-navigation ul a, .header-social-icons .social-icons-menu li a')
 				.hover( function() { $( this ).css( 'color', hovercolor ); },
 						function() { $( this ).css( 'color', textcolor ); }
+				);
+			$( '.mobile-menu-toggle .icon, .main-navigation .dropdown-toggle .icon, .main-navigation ul .menu-item-has-children > a > .icon' )
+				.css( 'fill', textcolor );
+			$('.mobile-menu-toggle, .main-navigation .dropdown-toggle, .main-navigation ul .menu-item-has-children > a')
+				.hover( function() { $( this ).css( 'fill', hovercolor ); },
+						function() { $( this ).css( 'fill', textcolor ); }
 				);
 		} );
 	} );
@@ -58,7 +64,7 @@
 	/* Navigation Color Option */
 	wp.customize( 'napoli_theme_options[navigation_color]', function( value ) {
 		value.bind( function( newval ) {
-			$( '.header-navigation-wrap' )
+			$( '.secondary-navigation' )
 				.css( 'background', newval );
 
 			var textcolor, hovercolor;
@@ -71,11 +77,17 @@
 				hovercolor = '#999999';
 			}
 
-			$( '.header-navigation-menu > li > a' )
+			$( '.header-navigation ul > li > a' )
 				.css( 'color', textcolor );
-			$('.header-navigation-menu > li > a')
+			$('.header-navigation ul > li > a')
 				.hover( function() { $( this ).css( 'color', hovercolor ); },
 						function() { $( this ).css( 'color', textcolor ); }
+				);
+			$( '.header-navigation > ul > li > .dropdown-toggle .icon, .header-navigation > ul > .menu-item-has-children > a > .icon' )
+				.css( 'fill', textcolor );
+			$('.header-navigation > ul > li > .dropdown-toggle, .header-navigation > ul > .menu-item-has-children > a')
+				.hover( function() { $( this ).css( 'fill', hovercolor ); },
+						function() { $( this ).css( 'fill', textcolor ); }
 				);
 		} );
 	} );
@@ -217,7 +229,7 @@
 			var newFont = newval === 'SystemFontStack' ? systemFont : newval;
 
 			// Set CSS.
-			$( '.widget-title, .page-header .archive-title, .comments-header .comments-title, .comment-reply-title, .related-posts-title, .main-navigation-menu a, .footer-navigation-menu a' )
+			$( '.widget-title, .page-header .archive-title, .comments-header .comments-title, .comment-reply-title, .related-posts-title, .main-navigation ul a, .footer-navigation-menu a' )
 				.css( 'font-family', newFont );
 
 		} );
