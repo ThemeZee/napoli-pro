@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Napoli Pro\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2018-04-13 10:01+0200\n"
-"PO-Revision-Date: 2018-04-13 10:01+0200\n"
+"POT-Creation-Date: 2020-08-18 14:20+0200\n"
+"PO-Revision-Date: 2020-08-18 14:21+0200\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
 "Language: de_DE\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: includes/admin/class-admin-notices.php:52
@@ -196,54 +196,54 @@ msgstr "Alle Beiträge ansehen"
 msgid "Display Author Bio"
 msgstr "Autor Bio anzeigen"
 
-#: includes/modules/class-custom-colors.php:276
+#: includes/modules/class-custom-colors.php:377
 msgid "Theme Colors"
 msgstr "Theme Farben"
 
-#: includes/modules/class-custom-colors.php:295
+#: includes/modules/class-custom-colors.php:394
 msgctxt "color setting"
 msgid "Header"
 msgstr "Header"
 
-#: includes/modules/class-custom-colors.php:312
+#: includes/modules/class-custom-colors.php:410
 msgctxt "color setting"
 msgid "Navigation"
 msgstr "Navigation"
 
-#: includes/modules/class-custom-colors.php:329
+#: includes/modules/class-custom-colors.php:426
 msgctxt "color setting"
 msgid "Links and Buttons"
 msgstr "Links und Buttons"
 
-#: includes/modules/class-custom-colors.php:346
+#: includes/modules/class-custom-colors.php:442
 msgctxt "color setting"
 msgid "Headings"
 msgstr "Überschriften"
 
-#: includes/modules/class-custom-colors.php:363
+#: includes/modules/class-custom-colors.php:458
 msgctxt "color setting"
 msgid "Widget Titles"
 msgstr "Widget Titel"
 
-#: includes/modules/class-custom-colors.php:380
+#: includes/modules/class-custom-colors.php:474
 msgctxt "color setting"
 msgid "Footer"
 msgstr "Footer"
 
-#: includes/modules/class-custom-fonts.php:192
+#: includes/modules/class-custom-fonts.php:236
 msgid "Theme Fonts"
 msgstr "Theme Schriftarten"
 
-#: includes/modules/class-custom-fonts.php:211
+#: includes/modules/class-custom-fonts.php:253
 msgid "Base Font"
 msgstr "Basis Schriftart"
 
-#: includes/modules/class-custom-fonts.php:227
+#: includes/modules/class-custom-fonts.php:268
 msgctxt "font setting"
 msgid "Headings"
 msgstr "Überschriften"
 
-#: includes/modules/class-custom-fonts.php:243
+#: includes/modules/class-custom-fonts.php:283
 msgctxt "font setting"
 msgid "Navigation and Widgets"
 msgstr "Navigation und Widgets"
@@ -296,7 +296,11 @@ msgstr "Footer Spalte 4"
 msgid "Appears on the fourth footer column."
 msgstr "Erscheint in der vierten Footer Spalte."
 
-#: includes/modules/class-header-menu.php:80
+#: includes/modules/class-header-menu.php:48
+msgid "Secondary Menu"
+msgstr "Sekundäres Menü"
+
+#: includes/modules/class-header-menu.php:81
 msgid "Header Bottom"
 msgstr "Header Unten"
 
@@ -310,8 +314,8 @@ msgid "Header Search"
 msgstr "Header Suche"
 
 #: includes/modules/class-header-search.php:120
-msgid "Enable search field in header"
-msgstr "Suchfeld im Header anzeigen"
+msgid "Enable search field in main navigation"
+msgstr "Suchfeld in Hauptnavigation anzeigen"
 
 #: includes/modules/class-scroll-to-top.php:65
 msgid "Scroll to Top"
@@ -397,7 +401,7 @@ msgstr "Magazin (Vertikale Box)"
 msgid "Displays your posts from a selected category in a vertical box."
 msgstr "Zeigt die Beiträge einer gewählten Kategorie in einer vertikalen Box."
 
-#: napoli-pro.php:209
+#: napoli-pro.php:205
 msgid "Settings"
 msgstr "Einstellungen"
 
