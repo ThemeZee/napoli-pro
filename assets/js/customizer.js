@@ -229,7 +229,7 @@
 			var newFont = newval === 'SystemFontStack' ? systemFont : newval;
 
 			// Set CSS.
-			$( '.widget-title, .page-header .archive-title, .comments-header .comments-title, .comment-reply-title, .related-posts-title, .main-navigation ul a, .footer-navigation-menu a' )
+			$( '.widget-title, .page-header .archive-title, .comments-header .comments-title, .comment-reply-title, .related-posts-title, .main-navigation ul, .primary-menu-toggle, .footer-navigation-menu a' )
 				.css( 'font-family', newFont );
 
 		} );

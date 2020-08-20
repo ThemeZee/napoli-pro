@@ -113,7 +113,8 @@ class Napoli_Pro_Custom_Fonts {
 				.comments-header .comments-title,
 				.comment-reply-title,
 				.related-posts-title,
-				.main-navigation-menu a,
+				.main-navigation ul,
+				.primary-menu-toggle,
 				.footer-navigation-menu a {
 					font-family: ' . self::get_font_family( $theme_options['navi_font'] ) . ';
 				}
