@@ -69,6 +69,7 @@ class Napoli_Pro_Custom_Colors {
 					.site-title,
 					.site-title a:link,
 					.site-title a:visited,
+					.main-navigation ul a,
 					.main-navigation ul a:link,
 					.main-navigation ul a:visited,
 					.header-social-icons .social-icons-menu li a,

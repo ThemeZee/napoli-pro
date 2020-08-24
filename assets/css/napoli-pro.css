@@ -69,6 +69,7 @@
 	border-top: none;
 }
 
+.header-navigation ul a,
 .header-navigation ul a:link,
 .header-navigation ul a:visited {
 	color: #444;
