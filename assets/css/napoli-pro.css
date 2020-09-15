@@ -275,16 +275,17 @@
 	z-index: 999;
 }
 
+.header-search .header-search-form.toggled-on {
+	display: block;
+}
+
 .header-search .header-search-form .search-form {
 	min-width: 300px;
 }
 
 .header-search .header-search-icon {
-	padding: 1.15em;
-}
-
-.header-search .header-search-icon {
 	color: #fff;
+	padding: 1.15em;
 }
 
 .header-search .header-search-icon:hover {
