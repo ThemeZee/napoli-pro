@@ -8,7 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Header Menu Class
@@ -29,7 +31,6 @@ class Napoli_Pro_Header_Menu {
 
 		// Display Header Bar.
 		add_action( 'napoli_header_menu', array( __CLASS__, 'display_header_menu' ) );
-
 	}
 
 	/**
@@ -43,7 +44,7 @@ class Napoli_Pro_Header_Menu {
 		if ( has_nav_menu( 'secondary' ) ) :
 			?>
 
-			<div class="secondary-navigation">
+			<div class="secondary-navigation" <?php self::amp_menu_is_toggled(); ?>>
 
 				<nav class="header-navigation container" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Menu', 'napoli-pro' ); ?>">
 
@@ -80,7 +81,15 @@ class Napoli_Pro_Header_Menu {
 		register_nav_menus( array(
 			'secondary' => esc_html__( 'Header Bottom', 'napoli-pro' ),
 		) );
+	}
 
+	/**
+	 * Adds amp support for mobile dropdown navigation menu.
+	 */
+	static function amp_menu_is_toggled() {
+		if ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() ) {
+			echo "[class]=\"'secondary-navigation' + ( primaryMenuExpanded ? ' toggled-on' : '' )\"";
+		}
 	}
 }
 
