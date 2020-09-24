@@ -94,7 +94,7 @@
 	background: #fff;
 }
 
-.is-amp-page .header-navigation ul ul,
+.is-amp-page .header-navigation ul button.toggled-on + ul,
 .header-navigation ul ul.toggled-on {
 	display: block;
 }
