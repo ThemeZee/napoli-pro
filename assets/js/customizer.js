@@ -159,79 +159,115 @@
 		} );
 	} );
 
-	/* Theme Fonts */
+	/* Text Font */
 	wp.customize( 'napoli_theme_options[text_font]', function( value ) {
 		value.bind( function( newval ) {
 
-			// Embed Font.
-			var fontFamilyUrl = newval.split( " " ).join( "+" );
-			var googleFontPath = "https://fonts.googleapis.com/css?family=" + fontFamilyUrl + ":400,700";
-			var googleFontSource = "<link id='napoli-pro-custom-text-font' href='" + googleFontPath + "' rel='stylesheet' type='text/css'>";
-			var checkLink = $( "head" ).find( "#napoli-pro-custom-text-font" ).length;
-
-			if (checkLink > 0) {
-				$( "head" ).find( "#napoli-pro-custom-text-font" ).remove();
-			}
-			$( "head" ).append( googleFontSource );
+			// Load Font in Customizer.
+			loadCustomFont( newval, 'text-font' );
 
 			// Set Font.
 			var systemFont = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
 			var newFont = newval === 'SystemFontStack' ? systemFont : newval;
 
 			// Set CSS.
-			$( 'body, button, input, select, textarea' )
-				.css( 'font-family', newFont );
-
+			document.documentElement.style.setProperty( '--text-font', newFont );
 		} );
 	} );
 
+	/* Title Font */
 	wp.customize( 'napoli_theme_options[title_font]', function( value ) {
 		value.bind( function( newval ) {
 
-			// Embed Font.
-			var fontFamilyUrl = newval.split( " " ).join( "+" );
-			var googleFontPath = "https://fonts.googleapis.com/css?family=" + fontFamilyUrl + ":400,700";
-			var googleFontSource = "<link id='napoli-pro-custom-title-font' href='" + googleFontPath + "' rel='stylesheet' type='text/css'>";
-			var checkLink = $( "head" ).find( "#napoli-pro-custom-title-font" ).length;
-
-			if (checkLink > 0) {
-				$( "head" ).find( "#napoli-pro-custom-title-font" ).remove();
-			}
-			$( "head" ).append( googleFontSource );
+			// Load Font in Customizer.
+			loadCustomFont( newval, 'title-font' );
 
 			// Set Font.
 			var systemFont = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
 			var newFont = newval === 'SystemFontStack' ? systemFont : newval;
 
 			// Set CSS.
-			$( '.site-title, .page-title, .entry-title' )
-				.css( 'font-family', newFont );
-
+			document.documentElement.style.setProperty( '--title-font', newFont );
 		} );
 	} );
 
+	/* Title Font Weight */
+	wp.customize( 'napoli_theme_options[title_is_bold]', function( value ) {
+		value.bind( function( newval ) {
+			var fontWeight = newval ? 'bold' : 'normal';
+			document.documentElement.style.setProperty( '--title-font-weight', fontWeight );
+		} );
+	} );
+
+	/* Title Text Transform */
+	wp.customize( 'napoli_theme_options[title_is_uppercase]', function( value ) {
+		value.bind( function( newval ) {
+			var textTransform = newval ? 'uppercase' : 'none';
+			document.documentElement.style.setProperty( '--title-text-transform', textTransform );
+		} );
+	} );
+
+	/* Navi Font */
 	wp.customize( 'napoli_theme_options[navi_font]', function( value ) {
 		value.bind( function( newval ) {
 
-			// Embed Font.
-			var fontFamilyUrl = newval.split( " " ).join( "+" );
-			var googleFontPath = "https://fonts.googleapis.com/css?family=" + fontFamilyUrl + ":400,700";
-			var googleFontSource = "<link id='napoli-pro-custom-navi-font' href='" + googleFontPath + "' rel='stylesheet' type='text/css'>";
-			var checkLink = $( "head" ).find( "#napoli-pro-custom-navi-font" ).length;
-
-			if (checkLink > 0) {
-				$( "head" ).find( "#napoli-pro-custom-navi-font" ).remove();
-			}
-			$( "head" ).append( googleFontSource );
+			// Load Font in Customizer.
+			loadCustomFont( newval, 'navi-font' );
 
 			// Set Font.
 			var systemFont = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
 			var newFont = newval === 'SystemFontStack' ? systemFont : newval;
 
 			// Set CSS.
-			$( '.widget-title, .page-header .archive-title, .comments-header .comments-title, .comment-reply-title, .related-posts-title, .main-navigation ul, .primary-menu-toggle, .footer-navigation-menu a' )
-				.css( 'font-family', newFont );
+			document.documentElement.style.setProperty( '--navi-font', newFont );
+		} );
+	} );
 
+	/* Navi Font Weight */
+	wp.customize( 'napoli_theme_options[navi_is_bold]', function( value ) {
+		value.bind( function( newval ) {
+			var fontWeight = newval ? 'bold' : 'normal';
+			document.documentElement.style.setProperty( '--navi-font-weight', fontWeight );
+		} );
+	} );
+
+	/* Navi Text Transform */
+	wp.customize( 'napoli_theme_options[navi_is_uppercase]', function( value ) {
+		value.bind( function( newval ) {
+			var textTransform = newval ? 'uppercase' : 'none';
+			document.documentElement.style.setProperty( '--navi-text-transform', textTransform );
+		} );
+	} );
+
+	/* Widget Title Font */
+	wp.customize( 'napoli_theme_options[widget_title_font]', function( value ) {
+		value.bind( function( newval ) {
+
+			// Load Font in Customizer.
+			loadCustomFont( newval, 'widget-title-font' );
+
+			// Set Font.
+			var systemFont = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
+			var newFont = newval === 'SystemFontStack' ? systemFont : newval;
+
+			// Set CSS.
+			document.documentElement.style.setProperty( '--widget-title-font', newFont );
+		} );
+	} );
+
+	/* Widget Title Font Weight */
+	wp.customize( 'napoli_theme_options[widget_title_is_bold]', function( value ) {
+		value.bind( function( newval ) {
+			var fontWeight = newval ? 'bold' : 'normal';
+			document.documentElement.style.setProperty( '--widget-title-font-weight', fontWeight );
+		} );
+	} );
+
+	/* Widget Title Text Transform */
+	wp.customize( 'napoli_theme_options[widget_title_is_uppercase]', function( value ) {
+		value.bind( function( newval ) {
+			var textTransform = newval ? 'uppercase' : 'none';
+			document.documentElement.style.setProperty( '--widget-title-text-transform', textTransform );
 		} );
 	} );
 
@@ -279,6 +315,19 @@
 
 	function isColorDark( hexColor ) {
 		return ( getColorBrightness( hexColor ) <= 130 );
+	}
+
+	function loadCustomFont( font, type ) {
+		var fontFile = font.split( " " ).join( "+" );
+		var fontFileURL = "https://fonts.googleapis.com/css?family=" + fontFile + ":400,700";
+
+		var fontStylesheet = "<link id='napoli-pro-custom-" + type + "' href='" + fontFileURL + "' rel='stylesheet' type='text/css'>";
+		var checkLink = $( "head" ).find( "#napoli-pro-custom-" + type ).length;
+
+		if (checkLink > 0) {
+			$( "head" ).find( "#napoli-pro-custom-" + type ).remove();
+		}
+		$( "head" ).append( fontStylesheet );
 	}
 
 } )( jQuery );
