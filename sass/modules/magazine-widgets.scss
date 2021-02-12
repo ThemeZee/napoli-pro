@@ -50,3 +50,78 @@
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
 }
+
+@media only screen and (max-width: 75em) {
+	.widget-magazine-columns .magazine-column-left {
+		padding-right: 0.75em;
+	}
+
+	.widget-magazine-columns .magazine-column-right {
+		padding-left: 0.75em;
+	}
+}
+
+@media only screen and (max-width: 40em) {
+	.widget-magazine-horizontal-box .magazine-grid-three-columns .post-column:last-child {
+		display: none;
+	}
+
+	.widget-magazine-columns .magazine-column-left .large-post .entry-meta,
+	.widget-magazine-columns .magazine-column-right .large-post .entry-meta,
+	.widget-magazine-vertical-box .left-post .large-post .entry-meta {
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 35em) {
+	.widget-magazine-columns .magazine-column-left .large-post .entry-title,
+	.widget-magazine-columns .magazine-column-right .large-post .entry-title,
+	.widget-magazine-vertical-box .left-post .large-post .entry-title {
+		font-size: 17px;
+		font-size: 1.0625rem;
+	}
+
+	/* Magazine Posts Columns Widget */
+	.widget-magazine-columns .magazine-column-left,
+	.widget-magazine-columns .magazine-column-right {
+		float: none;
+		padding: 0;
+		width: 100%;
+	}
+
+	.widget-magazine-columns .magazine-column-left {
+		margin-bottom: 1.5em;
+	}
+
+	/* Magazine Vertical Boxed Widget */
+	.widget-magazine-vertical-box .left-post,
+	.widget-magazine-vertical-box .small-posts {
+		float: none;
+		padding: 0 0 0.5em;
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 30em) {
+	.widget-magazine-horizontal-box .magazine-grid-three-columns .post-column:last-child {
+		display: block;
+	}
+}
+
+@media only screen and (max-width: 25em) {
+	.widget-magazine-columns .magazine-column-left .large-post .entry-title,
+	.widget-magazine-columns .magazine-column-right .large-post .entry-title,
+	.widget-magazine-vertical-box .left-post .large-post .entry-title {
+		font-size: 16px;
+		font-size: 1rem;
+	}
+}
+
+@media only screen and (max-width: 20em) {
+	.widget-magazine-columns .magazine-column-left .large-post .entry-title,
+	.widget-magazine-columns .magazine-column-right .large-post .entry-title,
+	.widget-magazine-vertical-box .left-post .large-post .entry-title {
+		font-size: 15px;
+		font-size: 0.9375rem;
+	}
+}

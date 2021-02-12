@@ -41,3 +41,62 @@
 .footer-navigation-menu a:active {
 	color: rgba(255,255,255,0.5);
 }
+
+@media only screen and (max-width: 60em) {
+	.footer-social-icons .social-icons-menu li {
+		text-align: center;
+	}
+
+	.footer-social-icons .social-icons-menu li a .social-link-text {
+		display: none;
+	}
+
+	.footer-social-icons .social-icons-menu li a:before {
+		float: none;
+		margin-right: 0;
+		padding: 0.5em;
+		background: none;
+		font-size: 24px;
+	}
+
+	.footer-navigation {
+		display: block;
+		float: none;
+		text-align: center;
+	}
+
+	.footer-navigation-menu li {
+		display: inline-block;
+		float: none;
+	}
+
+	.footer-navigation-menu a {
+		display: inline-block;
+	}
+}
+
+@media only screen and (max-width: 50em) {
+	.footer-social-icons-wrap {
+		padding: 1.5em 0;
+	}
+
+	.footer-social-icons .social-icons-menu {
+		margin-right: -1.5em;
+	}
+
+	.footer-social-icons .social-icons-menu li {
+		padding-right: 1.5em;
+	}
+}
+
+@media only screen and (max-width: 40em) {
+	.footer-social-icons .footer-social-icons-title {
+		font-size: 17px;
+		font-size: 1.0625rem;
+	}
+
+	.footer-navigation-menu li,
+	.footer-navigation-menu a {
+		display: block;
+	}
+}

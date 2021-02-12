@@ -35,3 +35,10 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
+@media only screen and (max-width: 75em) {
+	.scroll-to-top-button {
+		right: 0.75em;
+		bottom: 0.75em;
+	}
+}
