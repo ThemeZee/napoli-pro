@@ -673,11 +673,14 @@
 	display: block;
 	padding: 0.75em;
 	text-decoration: none;
-	text-transform: uppercase;
-	font-weight: normal;
 	font-size: 14px;
 	font-size: 0.875rem;
-	font-family: 'Montserrat', Tahoma, Arial;
+	font-family: "Montserrat", arial, helvetica, sans-serif;
+	font-family: var(--navi-font);
+	font-weight: normal;
+	font-weight: var(--navi-font-weight);
+	text-transform: uppercase;
+	text-transform: var(--navi-text-transform);
 	-webkit-transition: all 0.2s ease;
 	transition: all 0.2s ease;
 }
