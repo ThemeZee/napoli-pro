@@ -55,7 +55,7 @@ class Napoli_Pro_Header_Search {
 		// Embed header search JS if enabled.
 		if ( ( true === $theme_options['header_search'] || is_customize_preview() ) && ! self::is_amp() ) :
 
-			wp_enqueue_script( 'napoli-pro-header-search', NAPOLI_PRO_PLUGIN_URL . 'assets/js/header-search.js', array( 'jquery' ), NAPOLI_PRO_VERSION, true );
+			wp_enqueue_script( 'napoli-pro-header-search', NAPOLI_PRO_PLUGIN_URL . 'assets/js/header-search.min.js', array( 'jquery' ), '20210212', true );
 
 		endif;
 	}

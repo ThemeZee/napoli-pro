@@ -93,7 +93,7 @@ class Napoli_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_js() {
-		wp_enqueue_script( 'napoli-pro-customizer-js', NAPOLI_PRO_PLUGIN_URL . 'assets/js/customizer.js', array( 'customize-preview' ), '20201119', true );
+		wp_enqueue_script( 'napoli-pro-customizer-js', NAPOLI_PRO_PLUGIN_URL . 'assets/js/customize-preview.min.js', array( 'customize-preview' ), '20210212', true );
 	}
 
 	/**
@@ -102,7 +102,7 @@ class Napoli_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_css() {
-		wp_enqueue_style( 'napoli-pro-customizer-css', NAPOLI_PRO_PLUGIN_URL . 'assets/css/customizer.css', array(), '20201119' );
+		wp_enqueue_style( 'napoli-pro-customizer-css', NAPOLI_PRO_PLUGIN_URL . 'assets/css/customizer.css', array(), '20210212' );
 	}
 }
 
