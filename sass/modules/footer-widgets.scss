@@ -1,15 +1,12 @@
 .footer-widgets-background {
 	padding: 2em 0 0;
-	border-bottom: 1px solid rgba(255,255,255,0.1);
-	background: #ee4455;
+	border-bottom: 1px solid;
+	@include border-color(--footer-border-color);
+	@include background(--footer-background-color);
 }
 
 .footer-widgets {
 	margin-right: -2em;
-}
-
-.footer-widgets .widget {
-	margin: 0 0 2em;
 }
 
 /* Default: Four Column Footer Widgets */
@@ -43,10 +40,12 @@
 
 /* Footer Widget Styling */
 .footer-widgets .widget {
-	border: 1px solid rgba(255,255,255,0.1);
+	margin: 0 0 2em;
+	border: 1px solid;
+	@include border-color(--footer-border-color);
 	background: none;
 	box-shadow: none;
-	color: #fff;
+	@include color(--footer-text-color);
 }
 
 .footer-widgets .widget-header {
@@ -55,19 +54,20 @@
 
 .footer-widgets .widget-title {
 	padding: 0 0 0.75em;
-	border-bottom: 1px solid rgba(255,255,255,0.1);
+	border-bottom: 1px solid;
+	@include border-color(--footer-border-color);
 	background: none;
-	color: #fff;
+	@include color(--footer-link-color);
 }
 
 .footer-widgets .widget a:link,
-.footer-widgets .widget a:visited  {
-	color: #fff;
+.footer-widgets .widget a:visited {
+	@include color(--footer-link-color);
 }
 
 .footer-widgets .widget a:hover,
-.footer-widgets .widget a:active  {
-	color: rgba(255,255,255,0.5);
+.footer-widgets .widget a:active {
+	@include color(--footer-link-hover-color);
 }
 
 @media only screen and (max-width: 75em) {

@@ -4,7 +4,7 @@
 	display: none;
 	margin: 0;
 	padding: 1em;
-	background: #fff;
+	@include background(--navi-submenu-color);
 	box-shadow: 0 1px 2px #bbb;
 	z-index: 999;
 }
@@ -18,7 +18,7 @@
 }
 
 .header-search .header-search-icon {
-	color: #fff;
+	@include color(--navi-color);
 	padding: 1.15em;
 }
 

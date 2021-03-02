@@ -11,6 +11,12 @@
 /*--------------------------------------------------------------
 # - CSS Variables
 --------------------------------------------------------------*/
+:root {
+	--header-navi-color: #fff;
+	--header-navi-text-color: #444;
+	--header-navi-text-hover-color: #999;
+	--header-navi-border-color: #eee;
+}
 
 /*--------------------------------------------------------------
 # Header Navigation
@@ -20,7 +26,8 @@
 .secondary-navigation {
 	position: relative;
 	width: 100%;
-	background: #fff;
+	background-color: #fff;
+	background-color: var(--header-navi-color);
 }
 
 .secondary-navigation.toggled-on {
@@ -35,6 +42,7 @@
 	margin: 0;
 	padding: 0;
 	color: #444;
+	color: var(--header-navi-text-color);
 	list-style: none;
 	font-size: 15px;
 	font-size: 0.9375rem;
@@ -61,7 +69,9 @@
 	display: block;
 	margin: 0;
 	padding: 1em 1.25em;
-	border-top: 1px solid #eee;
+	border-top: 1px solid;
+	border-color: #eee;
+	border-color: var(--header-navi-border-color);
 	text-decoration: none;
 }
 
@@ -73,6 +83,7 @@
 .header-navigation ul a:link,
 .header-navigation ul a:visited {
 	color: #444;
+	color: var(--header-navi-text-color);
 	text-decoration: none;
 	transition: all 0.2s ease;
 }
@@ -81,6 +92,7 @@
 .header-navigation ul a:active,
 .header-navigation ul a:focus {
 	color: #999;
+	color: var(--header-navi-text-hover-color);
 }
 
 .header-navigation ul li.current-menu-item > a {
@@ -91,7 +103,8 @@
 .header-navigation ul ul {
 	font-size: 14px;
 	font-size: 0.875rem;
-	background: #fff;
+	background-color: #fff;
+	background-color: var(--header-navi-color);
 }
 
 .is-amp-page .header-navigation ul button.toggled-on + ul,
@@ -125,6 +138,7 @@
 .header-navigation .dropdown-toggle:focus {
 	outline: thin dotted;
 	color: #444;
+	color: var(--header-navi-text-color);
 	background: none;
 }
 
@@ -139,6 +153,7 @@
 	height: 22px;
 	vertical-align: top;
 	fill: #444;
+	fill: var(--header-navi-text-color);
 	transition: fill 0.2s ease;
 }
 
@@ -146,6 +161,7 @@
 .header-navigation .dropdown-toggle:active .icon,
 .header-navigation .dropdown-toggle:focus .icon {
 	fill: #999;
+	fill: var(--header-navi-text-hover-color);
 }
 
 .header-navigation .dropdown-toggle.toggled-on .icon {
@@ -202,7 +218,8 @@
 		left: -999em;
 		top: 100%;
 		z-index: 99999;
-		background: #fff;
+		background-color: #fff;
+		background-color: var(--header-navi-color);
 		box-shadow: 0 1px 2px #bbb;
 	}
 
@@ -242,6 +259,7 @@
 		width: 12px;
 		height: 12px;
 		fill: #444;
+		fill: var(--header-navi-text-color);
 		transition: fill 0.2s ease;
 	}
 
@@ -258,6 +276,7 @@
 
 	.header-navigation ul .menu-item-has-children > a:hover > .icon {
 		fill: #999;
+		fill: var(--header-navi-text-hover-color);
 	}
 }
 
@@ -270,7 +289,8 @@
 	display: none;
 	margin: 0;
 	padding: 1em;
-	background: #fff;
+	background-color: #fff;
+	background-color: var(--navi-submenu-color);
 	box-shadow: 0 1px 2px #bbb;
 	z-index: 999;
 }
@@ -285,6 +305,7 @@
 
 .header-search .header-search-icon {
 	color: #fff;
+	color: var(--navi-color);
 	padding: 1.15em;
 }
 
@@ -382,7 +403,8 @@
 	margin: 0;
 	padding: 1em 1.5em 0.5em;
 	max-width: 100%;
-	background: #fff;
+	background-color: #fff;
+	background-color: var(--page-background-color);
 	box-shadow: 0 1px 2px #bbb;
 	-ms-word-wrap: break-word;
 	word-wrap: break-word;
@@ -469,7 +491,9 @@
 .entry-author {
 	margin: 0;
 	padding: 1.5rem;
-	border-top: 1px solid #eee;
+	border-top: 1px solid;
+	border-color: #e0e0e0;
+	border-color: var(--light-border-color);
 }
 
 .entry-author .author-avatar {
@@ -525,16 +549,15 @@
 --------------------------------------------------------------*/
 .footer-widgets-background {
 	padding: 2em 0 0;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	background: #ee4455;
+	border-bottom: 1px solid;
+	border-color: rgba(255, 255, 255, 0.1);
+	border-color: var(--footer-border-color);
+	background-color: #ee4455;
+	background-color: var(--footer-background-color);
 }
 
 .footer-widgets {
 	margin-right: -2em;
-}
-
-.footer-widgets .widget {
-	margin: 0 0 2em;
 }
 
 /* Default: Four Column Footer Widgets */
@@ -568,10 +591,14 @@
 
 /* Footer Widget Styling */
 .footer-widgets .widget {
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	margin: 0 0 2em;
+	border: 1px solid;
+	border-color: rgba(255, 255, 255, 0.1);
+	border-color: var(--footer-border-color);
 	background: none;
 	box-shadow: none;
-	color: #fff;
+	color: #ddd;
+	color: var(--footer-text-color);
 }
 
 .footer-widgets .widget-header {
@@ -580,19 +607,24 @@
 
 .footer-widgets .widget-title {
 	padding: 0 0 0.75em;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-bottom: 1px solid;
+	border-color: rgba(255, 255, 255, 0.1);
+	border-color: var(--footer-border-color);
 	background: none;
 	color: #fff;
+	color: var(--footer-link-color);
 }
 
 .footer-widgets .widget a:link,
 .footer-widgets .widget a:visited {
 	color: #fff;
+	color: var(--footer-link-color);
 }
 
 .footer-widgets .widget a:hover,
 .footer-widgets .widget a:active {
 	color: rgba(255, 255, 255, 0.5);
+	color: var(--footer-link-hover-color);
 }
 
 @media only screen and (max-width: 75em) {
@@ -688,12 +720,14 @@
 .footer-navigation-menu a:link,
 .footer-navigation-menu a:visited {
 	color: #fff;
+	color: var(--footer-link-color);
 	text-decoration: none;
 }
 
 .footer-navigation-menu a:hover,
 .footer-navigation-menu a:active {
 	color: rgba(255, 255, 255, 0.5);
+	color: var(--footer-link-hover-color);
 }
 
 @media only screen and (max-width: 60em) {
@@ -769,23 +803,32 @@
 	padding: 0;
 	right: 1.5em;
 	bottom: 1.5em;
-	background: #ee4455;
+	background-color: #ee4455;
+	background-color: var(--button-color);
+	color: #fff;
+	color: var(--button-text-color);
 	transition: none;
 }
 
 .scroll-to-top-button:focus,
 .scroll-to-top-button:active {
-	background: #ee4455;
+	background-color: #ee4455;
+	background-color: var(--button-color);
+	color: #fff;
+	color: var(--button-text-color);
 }
 
 .scroll-to-top-button:hover {
-	background: #303030;
+	background-color: #303030;
+	background-color: var(--button-hover-color);
+	color: #fff;
+	color: var(--button-hover-text-color);
 }
 
-.scroll-to-top-button:after {
+.scroll-to-top-button::after {
 	display: inline-block;
 	margin: 0 0 0 3px;
-	color: #fff;
+	color: currentColor;
 	content: '\f432';
 	vertical-align: top;
 	text-decoration: inherit;

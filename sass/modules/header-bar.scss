@@ -2,7 +2,7 @@
 .secondary-navigation {
 	position: relative;
 	width: 100%;
-	background: #fff;
+	@include background(--header-navi-color);
 }
 
 .secondary-navigation.toggled-on {
@@ -16,7 +16,7 @@
 .header-navigation ul {
 	margin: 0;
 	padding: 0;
-	color: #444;
+	@include color(--header-navi-text-color);
 	list-style: none;
 	@include font-size(15);
 }
@@ -42,7 +42,8 @@
 	display: block;
 	margin: 0;
 	padding: 1em 1.25em;
-	border-top: 1px solid #eee;
+	border-top: 1px solid;
+	@include border-color(--header-navi-border-color);
 	text-decoration: none;
 }
 
@@ -53,7 +54,7 @@
 .header-navigation ul a,
 .header-navigation ul a:link,
 .header-navigation ul a:visited {
-	color: #444;
+	@include color(--header-navi-text-color);
 	text-decoration: none;
 	transition: all 0.2s ease;
 }
@@ -61,7 +62,7 @@
 .header-navigation ul a:hover,
 .header-navigation ul a:active,
 .header-navigation ul a:focus {
-	color: #999;
+	@include color(--header-navi-text-hover-color);
 }
 
 .header-navigation ul li.current-menu-item > a {
@@ -71,7 +72,7 @@
 /* Submenus */
 .header-navigation ul ul {
 	@include font-size(14);
-	background: #fff;
+	@include background(--header-navi-color);
 }
 
 .is-amp-page .header-navigation ul button.toggled-on + ul,
@@ -104,7 +105,7 @@
 
 .header-navigation .dropdown-toggle:focus {
 	outline: thin dotted;
-	color: #444;
+	@include color(--header-navi-text-color);
 	background: none;
 }
 
@@ -118,14 +119,14 @@
 	width: 22px;
 	height: 22px;
 	vertical-align: top;
-	fill: #444;
+	@include fill(--header-navi-text-color);
 	transition: fill 0.2s ease;
 }
 
 .header-navigation .dropdown-toggle:hover .icon,
 .header-navigation .dropdown-toggle:active .icon,
 .header-navigation .dropdown-toggle:focus .icon {
-	fill: #999;
+	@include fill(--header-navi-text-hover-color);
 }
 
 .header-navigation .dropdown-toggle.toggled-on .icon {
@@ -182,7 +183,7 @@
 		left: -999em;
 		top: 100%;
 		z-index: 99999;
-		background: #fff;
+		@include background(--header-navi-color);
 		box-shadow: 0 1px 2px #bbb;
 	}
 
@@ -221,7 +222,7 @@
 		top: 0.1rem;
 		width: 12px;
 		height: 12px;
-		fill: #444;
+		@include fill(--header-navi-text-color);
 		transition: fill 0.2s ease;
 	}
 
@@ -237,6 +238,6 @@
 	}
 
 	.header-navigation ul .menu-item-has-children > a:hover > .icon {
-		fill: #999;
+		@include fill(--header-navi-text-hover-color);
 	}
 }
