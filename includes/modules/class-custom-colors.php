@@ -64,7 +64,7 @@ class Napoli_Pro_Custom_Colors {
 				$color_variables .= '--header-text-hover-color: rgba(0, 0, 0, 0.5);';
 				$color_variables .= '--navi-color: #111;';
 				$color_variables .= '--navi-hover-color: rgba(0, 0, 0, 0.5);';
-				$color_variables .= '--navi-border-color: rgba(0, 0, 0, 0.1);';
+				$color_variables .= '--navi-border-color: rgba(0, 0, 0, 0.2);';
 			}
 		}
 
@@ -181,7 +181,7 @@ class Napoli_Pro_Custom_Colors {
 		$wp_customize->add_setting( 'napoli_theme_options[link_color]', array(
 			'default'           => $default_options['link_color'],
 			'type'              => 'option',
-			'transport'         => 'refresh',
+			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(

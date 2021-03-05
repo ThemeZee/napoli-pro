@@ -33,129 +33,114 @@
 	/* Header Color Option */
 	wp.customize( 'napoli_theme_options[header_color]', function( value ) {
 		value.bind( function( newval ) {
-			$( '.site-header' )
-				.css( 'background', newval );
-
-			var textcolor, hovercolor;
+			var text_color, hover_color, border_color;
 
 			if( isColorLight( newval ) ) {
-				textcolor = '#111111';
-				hovercolor = 'rgba(0,0,0,0.5)';
+				text_color = '#111';
+				hover_color = 'rgba(0, 0, 0, 0.5)';
+				border_color = 'rgba(0, 0, 0, 0.2)';
 			} else {
-				textcolor = '#ffffff';
-				hovercolor = '#cccccc';
+				text_color = '#fff';
+				hover_color = 'rgba(255, 255, 255, 0.5)';
+				border_color = 'rgba(255, 255, 255, 0.2)';
 			}
 
-			$( '.site-title, .site-title a, .main-navigation ul a, .header-social-icons .social-icons-menu li a' )
-				.css( 'color', textcolor );
-			$('.site-title, .site-title a, .main-navigation ul a, .header-social-icons .social-icons-menu li a')
-				.hover( function() { $( this ).css( 'color', hovercolor ); },
-						function() { $( this ).css( 'color', textcolor ); }
-				);
-			$( '.mobile-menu-toggle .icon, .main-navigation .dropdown-toggle .icon, .main-navigation ul .menu-item-has-children > a > .icon' )
-				.css( 'fill', textcolor );
-			$('.mobile-menu-toggle, .main-navigation .dropdown-toggle, .main-navigation ul .menu-item-has-children > a')
-				.hover( function() { $( this ).css( 'fill', hovercolor ); },
-						function() { $( this ).css( 'fill', textcolor ); }
-				);
+			document.documentElement.style.setProperty( '--header-background-color', newval );
+			document.documentElement.style.setProperty( '--header-text-color', text_color );
+			document.documentElement.style.setProperty( '--header-text-hover-color', hover_color );
+			document.documentElement.style.setProperty( '--navi-color', text_color );
+			document.documentElement.style.setProperty( '--navi-hover-color', hover_color );
+			document.documentElement.style.setProperty( '--navi-border-color', border_color );
 		} );
 	} );
 
 	/* Navigation Color Option */
 	wp.customize( 'napoli_theme_options[navigation_color]', function( value ) {
 		value.bind( function( newval ) {
-			$( '.secondary-navigation' )
-				.css( 'background', newval );
-
-			var textcolor, hovercolor;
+			var text_color, hover_color, border_color;
 
 			if( isColorDark( newval ) ) {
-				textcolor = '#ffffff';
-				hovercolor = 'rgba(255,255,255,0.5)';
+				text_color = '#fff';
+				hover_color = 'rgba(255, 255, 255, 0.5)';
+				border_color = 'rgba(255, 255, 255, 0.1)';
 			} else {
-				textcolor = '#444444';
-				hovercolor = '#999999';
+				text_color = '#111';
+				hover_color = 'rgba(0, 0, 0, 0.5)';
+				border_color = 'rgba(0, 0, 0, 0.1)';
 			}
 
-			$( '.header-navigation ul > li > a' )
-				.css( 'color', textcolor );
-			$('.header-navigation ul > li > a')
-				.hover( function() { $( this ).css( 'color', hovercolor ); },
-						function() { $( this ).css( 'color', textcolor ); }
-				);
-			$( '.header-navigation > ul > li > .dropdown-toggle .icon, .header-navigation > ul > .menu-item-has-children > a > .icon' )
-				.css( 'fill', textcolor );
-			$('.header-navigation > ul > li > .dropdown-toggle, .header-navigation > ul > .menu-item-has-children > a')
-				.hover( function() { $( this ).css( 'fill', hovercolor ); },
-						function() { $( this ).css( 'fill', textcolor ); }
-				);
+			document.documentElement.style.setProperty( '--header-navi-color', newval );
+			document.documentElement.style.setProperty( '--header-navi-text-color', text_color );
+			document.documentElement.style.setProperty( '--header-navi-text-hover-color', hover_color );
+			document.documentElement.style.setProperty( '--header-navi-border-color', border_color );
+		} );
+	} );
+
+	/* Link Color Option */
+	wp.customize( 'napoli_theme_options[link_color]', function( value ) {
+		value.bind( function( newval ) {
+			var text_color;
+
+			if( isColorLight( newval ) ) {
+				text_color = '#111';
+			} else {
+				text_color = '#fff';
+			}
+
+			document.documentElement.style.setProperty( '--link-color', newval );
+			document.documentElement.style.setProperty( '--button-color', newval );
+			document.documentElement.style.setProperty( '--button-text-color', text_color );
 		} );
 	} );
 
 	/* Title Color Option */
 	wp.customize( 'napoli_theme_options[title_color]', function( value ) {
 		value.bind( function( newval ) {
-			$( '.page-title, .entry-title, .entry-title a' )
-				.css( 'color', newval );
-			$('.entry-title, .entry-title a')
-				.hover( function() { $( this ).css( 'color', '#303030' ); },
-						function() { $( this ).css( 'color', newval ); }
-				);
+			document.documentElement.style.setProperty( '--title-color', newval );
 		} );
 	} );
 
 	/* Widget Title Color Option */
 	wp.customize( 'napoli_theme_options[widget_title_color]', function( value ) {
 		value.bind( function( newval ) {
-			$( '.widget-title, .page-header .archive-title, .comments-header, .comment-reply-title, .related-posts-title' )
-				.not( $('.footer-widgets .widget .widget-title') )
-				.css( 'background', newval );
-
-			var textcolor, hovercolor;
+			var text_color, hover_color;
 
 			if( isColorLight( newval ) ) {
-				textcolor = '#111111';
-				hovercolor = 'rgba(0,0,0,0.5)';
+				text_color = '#111';
+				hover_color = 'rgba(0, 0, 0, 0.5)';
 			} else {
-				textcolor = '#ffffff';
-				hovercolor = 'rgba(255,255,255,0.5)';
+				text_color = '#fff';
+				hover_color = 'rgba(255, 255, 255, 0.5)';
 			}
 
-			$( '.widget-title, .widget-title a, .page-header .archive-title, .comments-header .comments-title, .comment-reply-title, .related-posts-title' )
-				.css( 'color', textcolor );
-			$( '.widget-title a, .comment-reply-title' )
-				.hover( function() { $( this ).css( 'color', hovercolor ); },
-						function() { $( this ).css( 'color', textcolor ); }
-				);
+			document.documentElement.style.setProperty( '--widget-title-background-color', newval );
+			document.documentElement.style.setProperty( '--widget-title-color', text_color );
+			document.documentElement.style.setProperty( '--widget-title-hover-color', hover_color );
 		} );
 	} );
 
 	/* Footer Color Option */
 	wp.customize( 'napoli_theme_options[footer_color]', function( value ) {
 		value.bind( function( newval ) {
-			$( '.footer-wrap, .footer-widgets-background' )
-				.css( 'background', newval );
-
-			var textcolor, hovercolor;
+			var text_color, link_color, link_hover_color, border_color;
 
 			if( isColorLight( newval ) ) {
-				textcolor = '#111111';
-				hovercolor = 'rgba(0,0,0,0.5)';
-				bordercolor = 'rgba(0,0,0,0.1)';
+				text_color = 'rgba(0, 0, 0, 0.5)';
+				link_color = '#111';
+				link_hover_color = 'rgba(0, 0, 0, 0.5)';
+				border_color = 'rgba(0, 0, 0, 0.1)';
 			} else {
-				textcolor = '#ffffff';
-				hovercolor = '#cccccc';
-				bordercolor = 'rgba(255,255,255,0.1)';
+				text_color = 'rgba(255, 255, 255, 0.5)';
+				link_color = '#fff';
+				link_hover_color = 'rgba(255, 255, 255, 0.5)';
+				border_color = 'rgba(255, 255, 255, 0.1)';
 			}
 
-			$( '.site-footer, .site-footer .site-info a, .footer-navigation-menu a, .footer-widgets .widget, .footer-widgets .widget-title, .footer-widgets .widget a' )
-				.css( 'color', textcolor );
-			$( '.footer-widgets-background, .footer-widgets .widget, .footer-widgets .widget-title' )
-				.css( 'border-color', bordercolor );
-			$( '.site-footer .site-info a, .footer-navigation-menu a, .footer-widgets .widget a' )
-				.hover( function() { $( this ).css( 'color', hovercolor ); },
-						function() { $( this ).css( 'color', textcolor ); }
-				);
+			document.documentElement.style.setProperty( '--footer-background-color', newval );
+			document.documentElement.style.setProperty( '--footer-text-color', text_color );
+			document.documentElement.style.setProperty( '--footer-link-color', link_color );
+			document.documentElement.style.setProperty( '--footer-link-hover-color', link_hover_color );
+			document.documentElement.style.setProperty( '--footer-border-color', border_color );
 		} );
 	} );
 
