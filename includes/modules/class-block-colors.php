@@ -134,7 +134,7 @@ class Napoli_Pro_Block_Colors {
 		// Add Section for Block Colors.
 		$wp_customize->add_section( 'napoli_pro_section_block_colors', array(
 			'title'    => esc_html__( 'Block Colors', 'napoli-pro' ),
-			'priority' => 55,
+			'priority' => 60,
 			'panel'    => 'napoli_options_panel',
 		) );
 

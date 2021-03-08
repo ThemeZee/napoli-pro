@@ -212,7 +212,7 @@ class Napoli_Pro_Custom_Fonts {
 		// Add Section for Theme Fonts.
 		$wp_customize->add_section( 'napoli_pro_section_typography', array(
 			'title'    => __( 'Typography', 'napoli-pro' ),
-			'priority' => 70,
+			'priority' => 80,
 			'panel'    => 'napoli_options_panel',
 		) );
 
