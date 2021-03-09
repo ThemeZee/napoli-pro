@@ -81,19 +81,43 @@ class Napoli_Pro_Custom_Colors {
 		}
 
 		// Set Link Color.
-		if ( $theme_options['link_color'] != $default_options['link_color'] ) {
+		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
 			$color_variables .= '--link-color: ' . $theme_options['link_color'] . ';';
-			$color_variables .= '--button-color: ' . $theme_options['link_color'] . ';';
+		}
 
-			// Check if a dark background color was chosen.
-			if ( self::is_color_light( $theme_options['link_color'] ) ) {
+		// Set Link Hover Color.
+		if ( $theme_options['link_hover_color'] !== $default_options['link_hover_color'] ) {
+			$color_variables .= '--link-hover-color: ' . $theme_options['link_hover_color'] . ';';
+		}
+
+		// Set Button Color.
+		if ( $theme_options['button_color'] !== $default_options['button_color'] ) {
+			$color_variables .= '--button-color: ' . $theme_options['button_color'] . ';';
+
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['button_color'] ) ) {
 				$color_variables .= '--button-text-color: #111;';
 			}
 		}
 
+		// Set Button Hover Color.
+		if ( $theme_options['button_hover_color'] !== $default_options['button_hover_color'] ) {
+			$color_variables .= '--button-hover-color: ' . $theme_options['button_hover_color'] . ';';
+
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['button_hover_color'] ) ) {
+				$color_variables .= '--button-hover-text-color: #111;';
+			}
+		}
+
 		// Set Title Color.
-		if ( $theme_options['title_color'] != $default_options['title_color'] ) {
+		if ( $theme_options['title_color'] !== $default_options['title_color'] ) {
 			$color_variables .= '--title-color: ' . $theme_options['title_color'] . ';';
+		}
+
+		// Set Title Hover Color.
+		if ( $theme_options['title_hover_color'] !== $default_options['title_hover_color'] ) {
+			$color_variables .= '--title-hover-color: ' . $theme_options['title_hover_color'] . ';';
 		}
 
 		// Set Widget Title Color.
@@ -154,7 +178,7 @@ class Napoli_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'napoli_theme_options[header_color]', array(
-				'label'    => _x( 'Header', 'color setting', 'napoli-pro' ),
+				'label'    => _x( 'Header', 'Color Option', 'napoli-pro' ),
 				'section'  => 'napoli_pro_section_colors',
 				'settings' => 'napoli_theme_options[header_color]',
 				'priority' => 10,
@@ -170,14 +194,14 @@ class Napoli_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'napoli_theme_options[navigation_color]', array(
-				'label'    => _x( 'Navigation', 'color setting', 'napoli-pro' ),
+				'label'    => _x( 'Navigation', 'Color Option', 'napoli-pro' ),
 				'section'  => 'napoli_pro_section_colors',
 				'settings' => 'napoli_theme_options[navigation_color]',
 				'priority' => 20,
 			)
 		) );
 
-		// Add Content Primary Color setting.
+		// Add Link and Button Color setting.
 		$wp_customize->add_setting( 'napoli_theme_options[link_color]', array(
 			'default'           => $default_options['link_color'],
 			'type'              => 'option',
@@ -186,14 +210,62 @@ class Napoli_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'napoli_theme_options[link_color]', array(
-				'label'    => _x( 'Links and Buttons', 'color setting', 'napoli-pro' ),
+				'label'    => esc_html_x( 'Links', 'Color Option', 'napoli-pro' ),
 				'section'  => 'napoli_pro_section_colors',
 				'settings' => 'napoli_theme_options[link_color]',
 				'priority' => 30,
 			)
 		) );
 
-		// Add Content Secondary Color setting.
+		// Add Link Hover Color setting.
+		$wp_customize->add_setting( 'napoli_theme_options[link_hover_color]', array(
+			'default'           => $default_options['link_hover_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'napoli_theme_options[link_hover_color]', array(
+				'label'    => esc_html_x( 'Link Hover', 'Color Option', 'napoli-pro' ),
+				'section'  => 'napoli_pro_section_colors',
+				'settings' => 'napoli_theme_options[link_hover_color]',
+				'priority' => 40,
+			)
+		) );
+
+		// Add Button Color setting.
+		$wp_customize->add_setting( 'napoli_theme_options[button_color]', array(
+			'default'           => $default_options['button_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'napoli_theme_options[button_color]', array(
+				'label'    => esc_html_x( 'Buttons', 'Color Option', 'napoli-pro' ),
+				'section'  => 'napoli_pro_section_colors',
+				'settings' => 'napoli_theme_options[button_color]',
+				'priority' => 50,
+			)
+		) );
+
+		// Add Button Hover Color setting.
+		$wp_customize->add_setting( 'napoli_theme_options[button_hover_color]', array(
+			'default'           => $default_options['button_hover_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'napoli_theme_options[button_hover_color]', array(
+				'label'    => esc_html_x( 'Button Hover', 'Color Option', 'napoli-pro' ),
+				'section'  => 'napoli_pro_section_colors',
+				'settings' => 'napoli_theme_options[button_hover_color]',
+				'priority' => 60,
+			)
+		) );
+
+		// Add Title Color setting.
 		$wp_customize->add_setting( 'napoli_theme_options[title_color]', array(
 			'default'           => $default_options['title_color'],
 			'type'              => 'option',
@@ -202,10 +274,26 @@ class Napoli_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'napoli_theme_options[title_color]', array(
-				'label'    => _x( 'Headings', 'color setting', 'napoli-pro' ),
+				'label'    => esc_html_x( 'Titles', 'Color Option', 'napoli-pro' ),
 				'section'  => 'napoli_pro_section_colors',
 				'settings' => 'napoli_theme_options[title_color]',
-				'priority' => 40,
+				'priority' => 70,
+			)
+		) );
+
+		// Add Title Hover Color setting.
+		$wp_customize->add_setting( 'napoli_theme_options[title_hover_color]', array(
+			'default'           => $default_options['title_hover_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'napoli_theme_options[title_hover_color]', array(
+				'label'    => esc_html_x( 'Title Hover', 'Color Option', 'napoli-pro' ),
+				'section'  => 'napoli_pro_section_colors',
+				'settings' => 'napoli_theme_options[title_hover_color]',
+				'priority' => 80,
 			)
 		) );
 
@@ -218,10 +306,10 @@ class Napoli_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'napoli_theme_options[widget_title_color]', array(
-				'label'    => _x( 'Widget Titles', 'color setting', 'napoli-pro' ),
+				'label'    => _x( 'Widget Titles', 'Color Option', 'napoli-pro' ),
 				'section'  => 'napoli_pro_section_colors',
 				'settings' => 'napoli_theme_options[widget_title_color]',
-				'priority' => 40,
+				'priority' => 90,
 			)
 		) );
 
@@ -234,10 +322,10 @@ class Napoli_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'napoli_theme_options[footer_color]', array(
-				'label'    => _x( 'Footer', 'color setting', 'napoli-pro' ),
+				'label'    => _x( 'Footer', 'Color Option', 'napoli-pro' ),
 				'section'  => 'napoli_pro_section_colors',
 				'settings' => 'napoli_theme_options[footer_color]',
-				'priority' => 50,
+				'priority' => 100,
 			)
 		) );
 	}

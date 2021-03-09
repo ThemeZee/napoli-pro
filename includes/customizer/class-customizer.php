@@ -77,7 +77,11 @@ class Napoli_Pro_Customizer {
 			'header_color'              => '#ee4455',
 			'navigation_color'          => '#ffffff',
 			'link_color'                => '#ee4455',
+			'link_hover_color'          => '#303030',
+			'button_color'              => '#ee4455',
+			'button_hover_color'        => '#303030',
 			'title_color'               => '#ee4455',
+			'title_hover_color'         => '#303030',
 			'widget_title_color'        => '#ee4455',
 			'footer_color'              => '#ee4455',
 			'text_font'                 => 'Open Sans',
@@ -101,7 +105,7 @@ class Napoli_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_js() {
-		wp_enqueue_script( 'napoli-pro-customizer-js', NAPOLI_PRO_PLUGIN_URL . 'assets/js/customize-preview.js', array( 'customize-preview' ), '20210215', true );
+		wp_enqueue_script( 'napoli-pro-customizer-js', NAPOLI_PRO_PLUGIN_URL . 'assets/js/customize-preview.js', array( 'customize-preview' ), '20210307', true );
 	}
 
 	/**
