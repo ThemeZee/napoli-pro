@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Napoli Pro\n"
 "Report-Msgid-Bugs-To: https://themezee.com/\n"
-"POT-Creation-Date: 2021-02-11 16:23+0100\n"
-"PO-Revision-Date: 2021-02-11 16:24+0100\n"
+"POT-Creation-Date: 2021-03-09 14:47+0100\n"
+"PO-Revision-Date: 2021-03-09 14:48+0100\n"
 "Last-Translator: \n"
 "Language-Team: ThemeZee <support@themezee.com>\n"
 "Language: de_DE\n"
@@ -188,37 +188,101 @@ msgstr "Alle Beiträge ansehen"
 msgid "Display Author Bio"
 msgstr "Autor Bio anzeigen"
 
-#: includes/modules/class-custom-colors.php:378
+#: includes/modules/class-block-colors.php:136
+msgid "Block Colors"
+msgstr "Block Farben"
+
+#: includes/modules/class-block-colors.php:153
+msgctxt "Color Option"
+msgid "Primary"
+msgstr "Primär"
+
+#: includes/modules/class-block-colors.php:169
+msgctxt "Color Option"
+msgid "Secondary"
+msgstr "Sekundär"
+
+#: includes/modules/class-block-colors.php:185
+msgctxt "Color Option"
+msgid "Tertiary"
+msgstr "Tertiär"
+
+#: includes/modules/class-block-colors.php:201
+msgctxt "Color Option"
+msgid "Accent"
+msgstr "Akzent"
+
+#: includes/modules/class-block-colors.php:217
+msgctxt "Color Option"
+msgid "Highlight"
+msgstr "Highlight"
+
+#: includes/modules/class-block-colors.php:233
+msgctxt "Color Option"
+msgid "Light Gray"
+msgstr "Hellgrau"
+
+#: includes/modules/class-block-colors.php:249
+msgctxt "Color Option"
+msgid "Gray"
+msgstr "Grau"
+
+#: includes/modules/class-block-colors.php:265
+msgctxt "Color Option"
+msgid "Dark Gray"
+msgstr "Dunkelgrau"
+
+#: includes/modules/class-custom-colors.php:164
 msgid "Theme Colors"
 msgstr "Theme Farben"
 
-#: includes/modules/class-custom-colors.php:395
-msgctxt "color setting"
+#: includes/modules/class-custom-colors.php:181
+msgctxt "Color Option"
 msgid "Header"
 msgstr "Header"
 
-#: includes/modules/class-custom-colors.php:411
-msgctxt "color setting"
+#: includes/modules/class-custom-colors.php:197
+msgctxt "Color Option"
 msgid "Navigation"
 msgstr "Navigation"
 
-#: includes/modules/class-custom-colors.php:427
-msgctxt "color setting"
-msgid "Links and Buttons"
-msgstr "Links und Buttons"
+#: includes/modules/class-custom-colors.php:213
+msgctxt "Color Option"
+msgid "Links"
+msgstr "Links"
 
-#: includes/modules/class-custom-colors.php:443
-msgctxt "color setting"
-msgid "Headings"
-msgstr "Überschriften"
+#: includes/modules/class-custom-colors.php:229
+msgctxt "Color Option"
+msgid "Link Hover"
+msgstr "Link-Hover"
 
-#: includes/modules/class-custom-colors.php:459
-msgctxt "color setting"
+#: includes/modules/class-custom-colors.php:245
+msgctxt "Color Option"
+msgid "Buttons"
+msgstr "Buttons"
+
+#: includes/modules/class-custom-colors.php:261
+msgctxt "Color Option"
+msgid "Button Hover"
+msgstr "Button-Hover"
+
+#: includes/modules/class-custom-colors.php:277
+msgctxt "Color Option"
+msgid "Titles"
+msgstr "Titel"
+
+#: includes/modules/class-custom-colors.php:293
+msgctxt "Color Option"
+msgid "Title Hover"
+msgstr "Titel-Hover"
+
+#: includes/modules/class-custom-colors.php:309
+msgctxt "Color Option"
 msgid "Widget Titles"
 msgstr "Widget-Titel"
 
-#: includes/modules/class-custom-colors.php:475
-msgctxt "color setting"
+#: includes/modules/class-custom-colors.php:325
+msgctxt "Color Option"
 msgid "Footer"
 msgstr "Footer"
 
@@ -412,9 +476,17 @@ msgstr "Magazin (Vertikale Box)"
 msgid "Displays your posts from a selected category in a vertical box."
 msgstr "Zeigt die Beiträge einer gewählten Kategorie in einer vertikalen Box."
 
-#: napoli-pro.php:205
+#: napoli-pro.php:235
 msgid "Settings"
 msgstr "Einstellungen"
+
+#~ msgctxt "color setting"
+#~ msgid "Links and Buttons"
+#~ msgstr "Links und Buttons"
+
+#~ msgctxt "color setting"
+#~ msgid "Headings"
+#~ msgstr "Überschriften"
 
 #~ msgid "Local Fonts"
 #~ msgstr "Lokale Schriftarten"
