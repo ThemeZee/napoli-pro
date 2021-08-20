@@ -118,6 +118,7 @@ class Napoli_Pro {
 		require_once NAPOLI_PRO_PLUGIN_DIR . '/includes/modules/class-footer-line.php';
 		require_once NAPOLI_PRO_PLUGIN_DIR . '/includes/modules/class-footer-widgets.php';
 		require_once NAPOLI_PRO_PLUGIN_DIR . '/includes/modules/class-scroll-to-top.php';
+		require_once NAPOLI_PRO_PLUGIN_DIR . 'includes/modules/class-widget-areas.php';
 
 		// Include Magazine Widgets.
 		require_once NAPOLI_PRO_PLUGIN_DIR . '/includes/widgets/widget-magazine-columns.php';

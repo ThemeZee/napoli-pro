@@ -28,7 +28,7 @@ class Napoli_Pro_Footer_Widgets {
 		}
 
 		// Display footer widgets.
-		add_action( 'napoli_before_footer', array( __CLASS__, 'display_widgets' ), 20 );
+		add_action( 'napoli_before_footer', array( __CLASS__, 'display_widgets' ), 30 );
 
 	}
 
