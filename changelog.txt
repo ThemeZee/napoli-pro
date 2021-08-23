@@ -2,6 +2,10 @@
 Napoli Pro Changelog
 ===================================
 
+Version 2.2
+-----------------------------------
+* added extra widget areas
+
 Version 2.1
 -----------------------------------
 * added svg icon for header search
