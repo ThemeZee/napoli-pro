@@ -49,7 +49,7 @@ class Napoli_Pro_Scroll_To_Top {
 		// Call Credit Link function of theme if credit link is activated.
 		if ( true === $theme_options['scroll_to_top'] && ! self::is_amp() ) :
 
-			wp_enqueue_script( 'napoli-pro-scroll-to-top', NAPOLI_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.min.js', array( 'jquery' ), '20210603', true );
+			wp_enqueue_script( 'napoli-pro-scroll-to-top', NAPOLI_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.min.js', array(), '20220119', true );
 
 			// Passing Parameters to navigation.js.
 			wp_localize_script( 'napoli-pro-scroll-to-top', 'napoliProScrollToTop', array( 'icon' => self::get_svg( 'collapse' ) ) );
