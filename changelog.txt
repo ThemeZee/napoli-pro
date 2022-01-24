@@ -2,6 +2,11 @@
 Napoli Pro Changelog
 ===================================
 
+Version 2.2.1
+-----------------------------------
+* updated Header Search script to use vanilla js
+* updated Scroll to Top button script to use vanilla js
+
 Version 2.2
 -----------------------------------
 * added extra widget areas
