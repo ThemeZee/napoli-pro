@@ -20,10 +20,14 @@
 .header-search .header-search-icon {
 	@include color(--navi-color);
 	padding: 1.15em;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	background: none;
 }
 
 .header-search .header-search-icon:hover {
 	cursor: pointer;
+	color: var(--navi-hover-color);
 }
 
 .header-search .header-search-icon:focus {
