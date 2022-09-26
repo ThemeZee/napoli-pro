@@ -2,6 +2,10 @@
 Napoli Pro Changelog
 ===================================
 
+Version 2.2.2
+-----------------------------------
+* updated aria labels to improve accessibility
+
 Version 2.2.1
 -----------------------------------
 * updated Header Search script to use vanilla js
