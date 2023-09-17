@@ -2,6 +2,10 @@
 Napoli Pro Changelog
 ===================================
 
+Version 2.2.3
+-----------------------------------
+* updated plugin updater
+
 Version 2.2.2
 -----------------------------------
 * updated aria labels to improve accessibility
