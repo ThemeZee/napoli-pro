@@ -1,6 +1,9 @@
+@use "_mixins";
+@use "_variables";
+
 :root {
-	@include variable(--header-navi-color, $themeColors);
-	@include variable(--header-navi-text-color, $themeColors);
-	@include variable(--header-navi-text-hover-color, $themeColors);
-	@include variable(--header-navi-border-color, $themeColors);
+	@include mixins.variable(--header-navi-color, variables.$themeColors);
+	@include mixins.variable(--header-navi-text-color, variables.$themeColors);
+	@include mixins.variable(--header-navi-text-hover-color, variables.$themeColors);
+	@include mixins.variable(--header-navi-border-color, variables.$themeColors);
 }

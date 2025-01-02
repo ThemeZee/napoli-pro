@@ -1,8 +1,10 @@
+@use "../_mixins";
+
 .footer-widgets-background {
 	padding: 2em 0 0;
 	border-bottom: 1px solid;
-	@include border-color(--footer-border-color);
-	@include background(--footer-background-color);
+	@include mixins.border-color(--footer-border-color);
+	@include mixins.background(--footer-background-color);
 }
 
 .footer-widgets {
@@ -42,10 +44,10 @@
 .footer-widgets .widget {
 	margin: 0 0 2em;
 	border: 1px solid;
-	@include border-color(--footer-border-color);
+	@include mixins.border-color(--footer-border-color);
 	background: none;
 	box-shadow: none;
-	@include color(--footer-text-color);
+	@include mixins.color(--footer-text-color);
 }
 
 .footer-widgets .widget-header {
@@ -55,19 +57,19 @@
 .footer-widgets .widget-title {
 	padding: 0 0 0.75em;
 	border-bottom: 1px solid;
-	@include border-color(--footer-border-color);
+	@include mixins.border-color(--footer-border-color);
 	background: none;
-	@include color(--footer-link-color);
+	@include mixins.color(--footer-link-color);
 }
 
 .footer-widgets .widget a:link,
 .footer-widgets .widget a:visited {
-	@include color(--footer-link-color);
+	@include mixins.color(--footer-link-color);
 }
 
 .footer-widgets .widget a:hover,
 .footer-widgets .widget a:active {
-	@include color(--footer-link-hover-color);
+	@include mixins.color(--footer-link-hover-color);
 }
 
 @media only screen and (max-width: 75em) {

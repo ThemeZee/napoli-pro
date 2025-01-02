@@ -1,8 +1,10 @@
+@use "../_mixins";
+
 /* Secondary Navigation */
 .secondary-navigation {
 	position: relative;
 	width: 100%;
-	@include background(--header-navi-color);
+	@include mixins.background(--header-navi-color);
 }
 
 .secondary-navigation.toggled-on {
@@ -16,9 +18,9 @@
 .header-navigation ul {
 	margin: 0;
 	padding: 0;
-	@include color(--header-navi-text-color);
+	@include mixins.color(--header-navi-text-color);
 	list-style: none;
-	@include font-size(15);
+	@include mixins.font-size(15);
 }
 
 /* Hide the menu on small screens when JavaScript is available. */
@@ -43,7 +45,7 @@
 	margin: 0;
 	padding: 1em 1.25em;
 	border-top: 1px solid;
-	@include border-color(--header-navi-border-color);
+	@include mixins.border-color(--header-navi-border-color);
 	text-decoration: none;
 }
 
@@ -54,7 +56,7 @@
 .header-navigation ul a,
 .header-navigation ul a:link,
 .header-navigation ul a:visited {
-	@include color(--header-navi-text-color);
+	@include mixins.color(--header-navi-text-color);
 	text-decoration: none;
 	transition: all 0.2s ease;
 }
@@ -62,7 +64,7 @@
 .header-navigation ul a:hover,
 .header-navigation ul a:active,
 .header-navigation ul a:focus {
-	@include color(--header-navi-text-hover-color);
+	@include mixins.color(--header-navi-text-hover-color);
 }
 
 .header-navigation ul li.current-menu-item > a {
@@ -71,8 +73,8 @@
 
 /* Submenus */
 .header-navigation ul ul {
-	@include font-size(14);
-	@include background(--navi-submenu-color);
+	@include mixins.font-size(14);
+	@include mixins.background(--navi-submenu-color);
 }
 
 .is-amp-page .header-navigation ul button.toggled-on + ul,
@@ -82,18 +84,18 @@
 
 .header-navigation ul ul a {
 	padding-left: 2.5em;
-	@include border-color(--navi-submenu-border-color);
+	@include mixins.border-color(--navi-submenu-border-color);
 }
 
 .header-navigation ul ul a:link,
 .header-navigation ul ul a:visited {
-	@include color(--navi-submenu-text-color);
+	@include mixins.color(--navi-submenu-text-color);
 }
 
 .header-navigation ul ul a:hover,
 .header-navigation ul ul a:active,
 .header-navigation ul ul a:focus {
-	@include color(--navi-submenu-hover-color);
+	@include mixins.color(--navi-submenu-hover-color);
 }
 
 .header-navigation ul ul ul a {
@@ -117,7 +119,7 @@
 
 .header-navigation .dropdown-toggle:focus {
 	outline: thin dotted;
-	@include color(--header-navi-text-color);
+	@include mixins.color(--header-navi-text-color);
 	background: none;
 }
 
@@ -131,14 +133,14 @@
 	width: 22px;
 	height: 22px;
 	vertical-align: top;
-	@include fill(--header-navi-text-color);
+	@include mixins.fill(--header-navi-text-color);
 	transition: fill 0.2s ease;
 }
 
 .header-navigation .dropdown-toggle:hover .icon,
 .header-navigation .dropdown-toggle:active .icon,
 .header-navigation .dropdown-toggle:focus .icon {
-	@include fill(--header-navi-text-hover-color);
+	@include mixins.fill(--header-navi-text-hover-color);
 }
 
 .header-navigation .dropdown-toggle.toggled-on .icon {
@@ -154,13 +156,13 @@
 .header-navigation ul ul .dropdown-toggle .icon {
 	width: 20px;
 	height: 20px;
-	@include fill(--navi-submenu-text-color);
+	@include mixins.fill(--navi-submenu-text-color);
 }
 
 .header-navigation ul ul .dropdown-toggle:hover .icon,
 .header-navigation ul ul .dropdown-toggle:active .icon,
 .header-navigation ul ul .dropdown-toggle:focus .icon {
-	@include fill(--navi-submenu-hover-color);
+	@include mixins.fill(--navi-submenu-hover-color);
 }
 
 @media only screen and (min-width: 60em) {
@@ -202,7 +204,7 @@
 		left: -999em;
 		top: 100%;
 		z-index: 99999;
-		@include background(--navi-submenu-color);
+		@include mixins.background(--navi-submenu-color);
 		box-shadow: 0 1px 2px #bbb;
 	}
 
@@ -241,7 +243,7 @@
 		top: 0.1rem;
 		width: 12px;
 		height: 12px;
-		@include fill(--header-navi-text-color);
+		@include mixins.fill(--header-navi-text-color);
 		transition: fill 0.2s ease;
 	}
 
@@ -254,14 +256,14 @@
 		-webkit-transform: rotate(-90deg);
 		-ms-transform: rotate(-90deg);
 		transform: rotate(-90deg);
-		@include fill(--navi-submenu-text-color);
+		@include mixins.fill(--navi-submenu-text-color);
 	}
 
 	.header-navigation ul .menu-item-has-children > a:hover > .icon {
-		@include fill(--header-navi-text-hover-color);
+		@include mixins.fill(--header-navi-text-hover-color);
 	}
 
 	.header-navigation ul ul .menu-item-has-children > a:hover > .icon {
-		@include fill(--navi-submenu-hover-color);
+		@include mixins.fill(--navi-submenu-hover-color);
 	}
 }
