@@ -2,6 +2,10 @@
 Napoli Pro Changelog
 ===================================
 
+Version 2.2.4
+-----------------------------------
+* improved tooling and code styling
+
 Version 2.2.3
 -----------------------------------
 * updated plugin updater
